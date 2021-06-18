@@ -1,0 +1,15 @@
+# Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  question_id: 1
+  question_content: MyText
+  question_date: 2021-04-25 14:43:30
+  question_level: 1
+  enpathy: false
+
+two:
+  question_id: 1
+  question_content: MyText
+  question_date: 2021-04-25 14:43:30
+  question_level: 1
+  enpathy: false
