@@ -1,10 +1,116 @@
-<h1>家事育児スキルアップアプリ</h1>
+<!DOCTYPE html>
+<html lang="ja" class="no-js">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>ページのタイトル</title>
+
+    <script type="module">
+      document.documentElement.classList.remove('no-js');
+      document.documentElement.classList.add('js');
+    </script>
+
+    <link rel="stylesheet" href="/assets/css/styles.css">
+    <meta name="description" content="ページの説明文">
+    <link rel="icon" href="/favicon.ico">
+    <link rel="apple-touch-icon" href="/apple-touch-icon.png">
+    <link rel="manifest" href="/my.webmanifest">
+  </head>
 
 
-<p>初級 初めての方はこちらから</p>
-<%= link_to '文字列', '/ホゲホゲ/五歩ゲホ' %>   
-<p>中級 人生の必須知識を身に着けましょう！</p>
-<p>上級 「パートナー」はおまかせあれ</p>
+  
+  <!-- body -->
+  <body>
+    <!-- container -->
+    <div class="container">
+      <div class="navbar">
+        <div class="navbar-header">
+          <div class="navbar-button">
+            <a class="navbar-title" href="/home/index"><h1>家事育児スキル認定アプリ</h1></a>
+          </div>
+          <form action="#" method="post">
+            <nav class="user-login">
+              <div class="user-icon" >
+                <img src="img/#" alt="user-icon">
+              </div>
+
+              <p>ユーザー名<br>
+                <input type="text" name="user-name"></p>
+              <p>パスワード<br>
+                <input type="text" name="user-password"></p>
+              <input type="checkbox" name="remember-me">Remember me
+              <a href="/forgot-password.html">Forgot Password</a>
+              <p><input type="button" value="Log in" id="login-button"></p>
+              <p><input type="button" value="Sign Up" id="signup-button"></p>
+            </nav>
+          </form>
+        </div>
+      </div>
+      
+
+<br>
+<br>
+<br>
+      <link_to "ログアウト", destroy_user_session_path, method: delete %>
+
+      <div class="level-select">
+        <div class="easy-question"><a href="/views/easy-question.html">初級</a>
+          <p>初めての方はこちら</p>
+        </div>
+
+        <div class="normal-question"><a href="/views/normal-question.html">中級</a>
+          <p>人生の必須知識を<br>
+             身に着けましょう
+          </p>
+        </div>
+        <div class="hard-question"><a href="/views/hard-question.html">上級</a>
+          <p>「パートナー」はおまかせあれ</p>
+        </div>
+
+      </div>
+
+    </div>
+    <!-- /contaimer -->
+
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br><br>
+
+        
+    
 
 
 
+
+
+
+
+
+
+
+    <!-- Footer -->
+    <div id="footer">
+    </div>
+    <!-- /Footer -->
+
+    <!-- copyrights -->
+    <div id="copyrights">
+      <div class="container">
+        <p> © Copyrights <strong>HogeHoge</strong>. All Rights Reserved</p>
+      </div>
+    </div>
+    <!-- /copyrights -->
+
+
+    <!-- JavaScript Libraries -->
+    <!-- Template Main Jabascript File -->
+        
+
+  </body>
+  <!-- /body -->
+</html>

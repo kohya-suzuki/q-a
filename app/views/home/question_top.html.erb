@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="ja" class="no-js">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>ページのタイトル</title>
+
+    <script type="module">
+      document.documentElement.classList.remove('no-js');
+      document.documentElement.classList.add('js');
+    </script>
+
+    <link rel="stylesheet" href="/assets/css/styles.css">
+    <meta name="description" content="ページの説明文">
+    <link rel="icon" href="/favicon.ico">
+    <link rel="apple-touch-icon" href="/apple-touch-icon.png">
+    <link rel="manifest" href="/my.webmanifest">
+  </head>
+
+
+
+  <!-- body -->
+  <!-- Rubyのプログラムを埋め込むために、拡張子は.rbにしなければならない？or部分で埋め込むメソッドを使う？ -->
+  <!-- この中身をeasy/normal/hardのクリックで振り分けるrubyプログラムを書く  -->
+  <body>
+    <!-- container -->
+    <div class="container">
+      
+      <div class="user-icon"> <!-- 問題を作った人のアイコンや情報を表示 -->
+        <img src="img/#" alt="user-icon" id=>
+      </div>
+
+      <div class="question-contents">
+        <%= name %>  
+      </div>
+
+      <div class="answer-list">
+        <div class="answer-select1" id=""><% answer-selectA %></div> <!-- 答えの選択肢に「問題を作った人のIDと、問題のIDと、解答のIDが紐付けられている -->
+        <div class="answer-select2" id=""><% answer-selectB %></div>
+        <div class="answer-select3" id=""><% answer-selectC %></div>
+      </div>
+
+
+      # # 部分テンプレの呼び出し
+      # <%= render partial: 'layouts/_question_top.html.erb' %>
+      # <!--例 テンプレート内の「hoge」という変数に「こんにちは」が代入される -->
+      # <%= render partial: '_question_top.html.erb', locals: { question_contents: '' }
+
+
+      <div class="create_questionform">
+        <%= form_for @users do |f| %>
+          <p>ユーザー名</p>
+          <input name="username" value="<%= @users.username %>">
+        <% end %>
+
+        <%= form_for @questions do |f| %>
+          <p>問題文</p>
+          <input name="question_contents" value="<%= @questions.question_contents %>">
+          <input name="answer_list" value="<%= @questions.answer_list %>">
+          <input type="submit" value="問題の作成完了">
+        <% end %>
+      </div>
+
+
+
+    <%= form_for @users do |f| %>
+      <p>
+      <% f.text_field :name %>
+      </p>
+    <% end %> 
+  
+    <%= form_for @question do |f| %>
+      <p>
+        <%= f.text_area :question_contents %>
+        <%= f.text_area :answer_list %>
+      </p>
+    <% end %> 
+
+
+
+
+
+
+
+
+
+      <%= form_with model: @post do  |form| %>
+        <textarea name="contents"></textarea>
+        <input type="submit" value="作成完了">
+      <% end %>
+
+      <div class="flash-notifications">
+        <% flash.each do |key, message| %>
+        <p><%= message %></p>
+        <% end %>
+      </div>
+    </div>
+    <!-- /container -->
+
+    <!-- Footer -->
+    <div id="footer">
+    </div>
+    <!-- /Footer -->
+
+    <!-- copyrights -->
+    <div id="copyrights">
+      <div class="container">
+        <p> © Copyrights <strong>HogeHoge</strong>. All Rights Reserved</p>
+      </div>
+    </div>
+    <!-- /copyrights -->
+
+
+    <!-- JavaScript Libraries -->
+    <!-- Template Main Jabascript File -->
+        
+
+  </body>
+  <!-- /body -->
+</html>

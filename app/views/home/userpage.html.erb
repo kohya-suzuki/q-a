@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="ja" class="no-js">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>ユーザーページ</title>
+
+    <script type="module">
+      document.documentElement.classList.remove('no-js');
+      document.documentElement.classList.add('js');
+    </script>
+
+    <link rel="stylesheet" href="/assets/css/styles.css">
+    <meta name="description" content="ページの説明文">
+    <link rel="icon" href="/favicon.ico">
+    <link rel="apple-touch-icon" href="/apple-touch-icon.png">
+    <link rel="manifest" href="/my.webmanifest">
+  </head>
+
+
+  
+  <!-- body -->
+  <!-- Rubyのプログラムを埋め込むために、拡張子は.rbにしなければならない？or部分で埋め込むメソッドを使う？ -->
+  <!-- この中身をeasy/normal/hardのクリックで振り分けるrubyプログラムを書く  -->
+  <body>
+    <!-- container -->
+    <div class="container">
+      <div class="user-status">
+        <%= notice %>
+        <h1>ユーザーページ</h1>
+        
+        <div class="user-icon"> <!-- ログイン中のユーザーのアイコンや情報を表示 -->
+          <img src="img/#" alt="user-icon" id=>
+          # 抜いたもの①戻す
+        </div>
+        
+
+
+        # 問題の作成フォーム 
+    <div class="question_create_form">
+      <%= form_for(@questions, url: home_userpage_path, method: :post) do |f| %>
+        <p>
+          <%= f.label :question_contents, "問題の本文を入力してください" %><br>
+          <%= f.text_area :question_contents %>
+          <br>
+        </p>
+        <p>
+          <%= f.label :answer_list, "答えを入力してください" %><br>
+          <%= f.text_area :answer_list %>
+        </p>
+        <%= f.submit "投稿する" %>
+      <% end %> 
+    </div>
+
+
+
+
+        <div class="created-question-list">
+          <a href="home/created-question-list">作成済み問題一覧はこちら</a>
+        </div>
+      </div>
+    </div>

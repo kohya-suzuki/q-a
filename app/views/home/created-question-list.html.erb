@@ -1,0 +1,16 @@
+
+<%= notice %>
+
+# 部分テンプレ
+<%= form_for @users do |f| %>
+  <p>
+  <% f.text_field :username %>
+  </p>
+<% end %> 
+
+<%= form_for @question do |f| %>
+  <p>
+    <%= f.text_area :question_contents %>
+    <%= f.text_area :answer_list %>
+  </p>
+<% end %> 

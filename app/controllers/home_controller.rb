@@ -3,23 +3,34 @@ class HomeController < ApplicationController
   
   def index
     if user_signed_in?
-      render 'show'
+      render 'home/userpage'
     else
-      render 'index'
+      render 'home/index'
     end
   end
 
   def show
     if user_signed_in?
-      render 'show'
+      render 'home/userpage'
     else
-      render 'index'
+      render 'home/index'
     end
+  end
+
+  def index
+    @questions = Question.new
+    @questions =Question.all
+    @question = Question.new
+    @question =Question.all
   end
 
   def new
     @user = current_user.id
   end
+
+  
+  
+  
 
  
 end

@@ -10,11 +10,14 @@
     <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
   </head>
 
+  # 問題の作成
+
+
   <body>
     <header>
       <nav>
         <% if user_signed_in? %>
-          <strong><%= link_to 'ユーザーページトップヘ', home_userpage_path %></strong>
+          <strong><%= link_to 'ユーザーページトップヘ', home_show_path %></strong>
           <h2> 現在 <%= current_user.username %> さんがログインしています </h2>
           <%=  link_to 'プロフィール変更', edit_user_registration_path %>
           <%= link_to 'ログアウト', destroy_user_session_path, method: :delete %>
@@ -24,6 +27,26 @@
         <% end %>
       </nav>
     </header>
+
+
+    # 部分テンプレ
+    <div class="question_create_form">
+      <%= form_for @users do |f| %>
+        <p>
+        <% f.text_field :username %>
+        </p>
+      <% end %> 
+    
+      <%= form_for @question do |f| %>
+      <p>
+        <%= f.text_area :question_contents %>
+        <%= f.text_area :answer_list %>
+      </p>
+      <%= f.submit "投稿する" %>
+      </div>
+    <% end %> 
+
+
 
     <p class="notice"><%= notice %></p>
     <p class="alert"><%= alert %></p>
