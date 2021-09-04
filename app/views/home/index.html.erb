@@ -1,17 +1,7 @@
 <!DOCTYPE html>
 <html lang="ja" class="no-js">
   
-  <header role="banner">
-      <div id="cd-logo"><a href="#0"><img src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/148866/cd-logo_1.svg" alt="Logo"></a></div>
-
-      <nav class="main-nav">
-        <ul>
-          <!-- inser more links here -->
-          <li><a class="cd-signin" href="#0">Sign in</a></li>
-          <li><a class="cd-signup" href="#0">Sign up</a></li>
-        </ul>
-      </nav>
-    </header>
+  
 
     <head>
     <meta charset="UTF-8">
@@ -34,8 +24,37 @@
   
   <!-- body -->
   <body>
+    <header role="banner">
+      <div id="cd-logo">
+        <a href="#0">
+          <img src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/148866/cd-logo_1.svg" alt="Logo">
+        </a>
+      </div>
+      <nav class="main-nav">
+        <ul>
+          <!-- inser more links here -->
+          <li><a class="cd-signin" href="#0">Sign in</a></li>
+          <li><a class="cd-signup" href="#0">Sign up</a></li>
+        </ul>
+      </nav>
+    </header>
+
+
+
     <!-- container -->
     <div class="container">
+      <nav>
+      <% if user_signed_in? %>
+        <strong><%= link_to 'ユーザーページトップヘ', home_userpage_path %></strong>
+        <h2> 現在 <%= current_user.username %> さんがログインしています </h2>
+        <%=  link_to 'プロフィール変更', edit_user_registration_path %>
+        <%= link_to 'ログアウト', destroy_user_session_path, method: :delete %>
+      <% else %>
+        <%= link_to 'サインアップ', new_user_registration_path, class: 'post' %>
+        <%= link_to 'ログイン',  new_user_session_path, class: 'post' %>
+      <% end %>
+    </nav>
+
       <div class="navbar">
         <div class="navbar-header">
           <div class="navbar-button">
