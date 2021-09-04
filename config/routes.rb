@@ -4,11 +4,13 @@ Rails.application.routes.draw do
   root 'home#index'
   get 'home/index'
   
-  get 'home/userpage' => 'questions#userpage'
+  
+  # get 'home/userpage' => 'questions#userpage'
   post '/home/userpage' => 'questions#create'
   get '/home/userpage'=> 'questions#create'
 
-  get 'home/question_top'
+  get 'home/questiontop' => 'questions#questiontop'
+  # resources :questions
 
 
 # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html

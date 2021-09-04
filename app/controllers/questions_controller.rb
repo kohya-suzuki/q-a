@@ -8,15 +8,15 @@ class QuestionsController < ApplicationController
       # else
       #   flash[:alert] = "内容に誤りがあります。"
       #   render home/question_create
-      end
+      # end
   end
   
     def new
-      @questions = Questions.new
+      @questions = Question.new
     end
 
     def create
-      @questions = Questions.new(questions_params)
+      @questions = Question.new(questions_params)
       if @questions.save
   
         flash[:notice] = "問題を作成しました！"
@@ -26,6 +26,7 @@ class QuestionsController < ApplicationController
         redirect_to("home/userpage")
       end
     end
+
     def questions_params
       params.require(:questions).permit(:content, :id, :level, :answer_list)
     end
@@ -35,17 +36,18 @@ class QuestionsController < ApplicationController
   # end
   
   def userpage
-    @questions = Questions.new
-    @questions =Questions.all
+    @questions = Question.new
+    @questions = Question.all
     @question = Question.new
-    @question =Question.all
+    @question = Question.all
   end
 
   def destroy
   end
 
+  def questiontop
+  end
   
 
+
 end
-
-

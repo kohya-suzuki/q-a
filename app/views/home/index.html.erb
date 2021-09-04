@@ -51,26 +51,29 @@
 <br>
 <br>
 <br>
-      <link_to "ログアウト", destroy_user_session_path, method: delete %>
+      < link_to "ログアウト", destroy_user_session_path, method: delete >
 
       <div class="level-select">
-        <div class="easy-question"><a href="/views/easy-question.html">初級</a>
+        <%= link_to "初級", home_questiontop_path %>
           <p>初めての方はこちら</p>
+        
         </div>
 
-        <div class="normal-question"><a href="/views/normal-question.html">中級</a>
+        <div class="normal-question">
+          <%= link_to "中級", home_questiontop_path %>
           <p>人生の必須知識を<br>
              身に着けましょう
           </p>
         </div>
-        <div class="hard-question"><a href="/views/hard-question.html">上級</a>
+        <div class="hard-question">
+        <%= link_to "上級", home_questiontop_path %>
           <p>「パートナー」はおまかせあれ</p>
         </div>
 
       </div>
 
     </div>
-    <!-- /contaimer -->
+    <!-- /container -->
 
 <br>
 <br>
