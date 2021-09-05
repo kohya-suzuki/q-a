@@ -27,158 +27,98 @@
     <header role="banner">
       <div id="cd-logo">
         <a href="#0">
-          <!--  <img src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/148866/cd-logo_1.svg" alt="Logo"> -->
-          <a class="img" href="/home/index"><h1>家事育児スキル認定アプリ</h1></a>
+          <!--  <img src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/148866/cd-logo_1.svg" alt="Logo"> codepenからコピペしたままの記述-->
+          <a class="img" href="/home/index"><h1>SAMBO 〜家事育児スキル認定アプリ〜</h1></a>
         </a>
       </div>
       <nav class="main-nav">
         <ul>
           <!-- inser more links here -->
-          <li><a class="cd-signin" href="#0">Sign in</a></li>
-          <li><a class="cd-signup" href="#0">Sign up</a></li>
+          <!-- <li><a class="cd-signin"><%= link_to 'ログイン', new_user_session_path, class: 'post' %></a></li>-->
+          <!-- <li><a class="cd-signup"><%= link_to 'サインアップ', new_user_registration_path, class: 'post' %></a></li>-->
+          <!-- <li><a class="cd-logout"><%= link_to 'ログアウト', destroy_user_session_path, method: :delete %> -->
+          <li><a class="cd-signin" href="#0">ログイン</a></li>
+				  <li><a class="cd-signup" href="#0">サインアップ</a></li>
         </ul>
       </nav>
     </header>
 
-
-
+        <% if user_signed_in? %>
+          <strong><%= link_to 'ユーザープロフィールへ。ログイン後はナビ内でアイコンに変えて表示する', home_userpage_path %></strong>
+          <a> <%= current_user.username %> さん おかえりなさい！ </a>
+          <% else %>
+        <% end %>
     <!-- container -->
+
+
     <div class="veen">
 			<div class="login-btn splits">
-				<p>Already an user?</p>
-				<button class="active">Login</button>
+				<p>おかえりなさい！</p>
+				<button class="active">ログイン</button>
 			</div>
 			<div class="rgstr-btn splits">
-				<p>Don't have an account?</p>
-				<button>Register</button>
+				<p>はじめての方はこちら</p>
+				<button>サインアップ</button>
 			</div>
 			<div class="wrapper">
 				<form id="login" tabindex="500">
-					<h3>Login</h3>
+					<h3>ログイン</h3>
 					<div class="mail">
 						<input type="mail" name="">
-						<label>Mail or Username</label>
+						<label>メールアドレスかユーザーネーム</label>
 					</div>
 					<div class="passwd">
 						<input type="password" name="">
-						<label>Password</label>
+						<label>パスワード</label>
 					</div>
 					<div class="submit">
-						<button class="dark">Login</button>
+						<button class="dark">ログイン</button>
 					</div>
 				</form>
 				<form id="register" tabindex="502">
-					<h3>Register</h3>
+					<h3>サインアップ</h3>
 					<div class="name">
 						<input type="text" name="">
-						<label>Full Name</label>
+						<label>お名前</label>
 					</div>
 					<div class="mail">
 						<input type="mail" name="">
-						<label>Mail</label>
+						<label>メールアドレス</label>
 					</div>
 					<div class="uid">
 						<input type="text" name="">
-						<label>User Name</label>
+						<label>ユーザーネーム</label>
 					</div>
 					<div class="passwd">
 						<input type="password" name="">
-						<label>Password</label>
+						<label>パスワード</label>
 					</div>
 					<div class="submit">
-						<button class="dark">Register</button>
+						<button class="dark">サインアップ</button>
 					</div>
 				</form>
 			</div>
 		</div>	
 
+  <!-- container -->
     <div class="container">
-      <nav>
-      <% if user_signed_in? %>
-        <strong><%= link_to 'ユーザーページトップヘ', home_userpage_path %></strong>
-        <h2> 現在 <%= current_user.username %> さんがログインしています </h2>
-        <%=  link_to 'プロフィール変更', edit_user_registration_path %>
-        <%= link_to 'ログアウト', destroy_user_session_path, method: :delete %>
-      <% else %>
-        <%= link_to 'サインアップ', new_user_registration_path, class: 'post' %>
-        <%= link_to 'ログイン',  new_user_session_path, class: 'post' %>
-      <% end %>
-    </nav>
-
-      <div class="navbar">
-        <div class="navbar-header">
-          <div class="navbar-button">
-            <a class="img" href="/home/index"><h1>家事育児スキル認定アプリ</h1></a>
-          </div>
-          <form action="#" method="post">
-            <nav class="user-login">
-              <div class="user-icon" >
-                <img src="img/#" alt="user-icon">
-              </div>
-
-              <p>ユーザー名<br>
-                <input type="text" name="user-name"></p>
-              <p>パスワード<br>
-                <input type="text" name="user-password"></p>
-              <input type="checkbox" name="remember-me">Remember me
-              <a href="/forgot-password.html">Forgot Password</a>
-              <p><input type="button" value="Log in" id="login-button"></p>
-              <p><input type="button" value="Sign Up" id="signup-button"></p>
-            </nav>
-          </form>
-        </div>
-      </div>
-      
-
-<br>
-<br>
-<br>
-      < link_to "ログアウト", destroy_user_session_path, method: delete >
-
       <div class="level-select">
         <%= link_to "初級", home_questiontop_path %>
-          <p>初めての方はこちら</p>
-        
-        </div>
-
-        <div class="normal-question">
-          <%= link_to "中級", home_questiontop_path %>
-          <p>人生の必須知識を<br>
-             身に着けましょう
-          </p>
-        </div>
-        <div class="hard-question">
-        <%= link_to "上級", home_questiontop_path %>
-          <p>「パートナー」はおまかせあれ</p>
-        </div>
-
+        <p>初めての方はこちら</p>
       </div>
-
+      <div class="normal-question">
+        <%= link_to "中級", home_questiontop_path %>
+        <p>人生の必須知識を<br>身に着けましょう</p>
+      </div>
+      <div class="hard-question">
+        <%= link_to "上級", home_questiontop_path %>
+        <p>「パートナー」はおまかせあれ</p>
+      </div>
     </div>
-    <!-- /container -->
-
-<br>
-<br>
-<br>
-<br>
-<br>
-<br>
-<br>
-<br><br>
-
+  <!-- /container -->
         
-    
 
-
-
-
-
-
-
-
-
-
-    <!-- Footer -->
+  <!-- Footer -->
     <div id="footer">
     </div>
     <!-- /Footer -->
