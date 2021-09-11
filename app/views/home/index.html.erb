@@ -13,11 +13,13 @@
       document.documentElement.classList.add('js');
     </script>
 
+   <!--  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/modern-css-reset/dist/reset.min.css" /> -->
     <link rel="stylesheet" href="/assets/css/styles.css">
     <meta name="description" content="ページの説明文">
     <link rel="icon" href="/favicon.ico">
     <link rel="apple-touch-icon" href="/apple-touch-icon.png">
     <link rel="manifest" href="/my.webmanifest">
+
   </head>
 
 
@@ -27,7 +29,6 @@
     <header role="banner">
       <div id="cd-logo">
         <a href="#0">
-          <!--  <img src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/148866/cd-logo_1.svg" alt="Logo"> codepenからコピペしたままの記述-->
           <a class="img" href="/home/index"><h1>SAMBO 〜家事育児スキル認定アプリ〜</h1></a>
         </a>
       </div>
@@ -57,9 +58,22 @@
 				<button class="active">ログイン</button>
 			</div>
 			<div class="rgstr-btn splits">
-				<p>はじめての方はこちら</p>
-				<button>サインアップ</button>
+        <!-- <p>はじめての方はこちら</p> -->
+        <!-- <button>サインアップ</button> -->
+          <div class="level-select">
+            <%= link_to "初級", home_questiontop_path %>
+            <p>初めての方はこちら</p>
+          </div>
+          <div class="normal-question">
+            <%= link_to "中級", home_questiontop_path %>
+            <p>人生の必須知識を<br>身に着けましょう</p>
+          </div>
+          <div class="hard-question">
+            <%= link_to "上級", home_questiontop_path %>
+            <p>「パートナー」はおまかせあれ</p>
+          </div>
 			</div>
+
 			<div class="wrapper">
 				<form id="login" tabindex="500">
 					<h3>ログイン</h3>
@@ -71,10 +85,20 @@
 						<input type="password" name="">
 						<label>パスワード</label>
 					</div>
+
 					<div class="submit">
 						<button class="dark">ログイン</button>
 					</div>
 				</form>
+
+         <form id="login" tabindex="500" style="padding-top: 0%;">
+            <h3>初めての方はこちら</h3>
+            <div class="submit">
+              <button class="dark">Login</button>
+            </div>
+          </form>
+
+
 				<form id="register" tabindex="502">
 					<h3>サインアップ</h3>
 					<div class="name">
@@ -100,7 +124,8 @@
 			</div>
 		</div>	
 
-  <!-- container -->
+
+  <!-- container 
     <div class="container">
       <div class="level-select">
         <%= link_to "初級", home_questiontop_path %>
@@ -115,13 +140,54 @@
         <p>「パートナー」はおまかせあれ</p>
       </div>
     </div>
-  <!-- /container -->
+   <!-- container -->
         
 
-  <!-- Footer -->
+  <!-- Footer 
     <div id="footer">
     </div>
-    <!-- /Footer -->
+   Footer -->
+  <!-- codepenのフッター -->
+    <div class="rela-block footer">
+    <div class="rela-block social-buttons-container">
+        <div class="social-button facebook-button"></div>
+        <div class="social-button insta-button"></div>
+        <div class="social-button twitter-button"></div>
+        <div class="social-button pinterest-button"></div>
+    </div>
+    <div class="rela-block footer-links-container">
+        <div class="footer-flex-column">
+            <ul> Projects
+                <li>Chillwave</li>
+                <li>Gluten-free</li>
+                <li>Kitsch Cardigan</li>
+            </ul>
+        </div>
+        <div class="footer-flex-column">
+            <ul> About us
+                <li>Fingerstache</li>
+                <li>Lumbersexual</li>
+                <li>Lo-Fi Aesthitic</li>
+            </ul>
+        </div>
+        <div class="footer-flex-column">
+            <ul> Community
+                <li>Kale Chips</li>
+                <li>Church Key</li>
+                <li>Longboarding</li>
+            </ul>
+        </div>
+        <div class="footer-flex-column">
+            <ul> Connect
+                <li>Pinterest</li>
+                <li>Etsy</li>
+                <li>Blog Swag</li>
+            </ul>
+        </div>
+    </div>
+
+
+
 
     <!-- copyrights -->
     <div id="copyrights">
@@ -816,9 +882,197 @@ xsigin/signup popup
 			}
 		}
 
-input:-webkit-autofill, textarea:-webkit-autofill, select:-webkit-autofill{
-  box-shadow: inset 0 0 0 50px #fff
+
+    <!-- footer -->
+    
+    .footer {
+  min-height: 100px;
+  background-color: #282828;
+  box-sizing: border-box;
+  border-top: 6px solid #e78533;
+  color: #fff;
 }
-  </style>
+.social-buttons-container {
+  min-height: 100px;
+  width: 100%;
+  max-width: 1000px;
+  margin: 20px auto 0;
+  text-align: center;
+}
+.social-button {
+  display: inline-block;
+  position: relative;
+  transform: scale(0.75);
+  height: 75px;
+  width: 75px;
+  background-size: cover !important;
+  transition: 0.3s ease;
+  margin: 14px 2px;
+  cursor: pointer;
+}
+.social-button:hover {
+  transform: scale(1);
+  transition: 0.3s cubic-bezier(0.3, 0.2, 0, 2.5);
+}
+.social-button.twitter-button {
+  background: url("https://cdn4.iconfinder.com/data/icons/social-icon-4/842/twitter-256.png") no-repeat center;
+}
+.social-button.facebook-button {
+  background: url("https://cdn4.iconfinder.com/data/icons/social-icon-4/842/facebook-256.png") no-repeat center;
+}
+.social-button.pinterest-button {
+  background: url("https://cdn4.iconfinder.com/data/icons/social-icon-4/842/pinterest-256.png") no-repeat center;
+}
+.social-button.insta-button {
+  background: url("https://cdn4.iconfinder.com/data/icons/social-icon-4/842/instagram-256.png") no-repeat center;
+}
+.footer-links-container {
+  display: flex;
+  width: 90%;
+  max-width: 950px;
+  margin: 30px auto 80px;
+  text-align: center;
+}
+.footer-links-container .footer-flex-column {
+  position: relative;
+  flex: 1 1 0;
+  text-align: center;
+  border-right: 1px solid #555;
+}
+.footer-links-container .footer-flex-column:last-child {
+  border: none;
+}
+.footer-links-container .footer-flex-column ul {
+  position: relative;
+  width: 100%;
+  max-width: 200px;
+  margin: auto;
+  color: #aaa;
+  font-size: 18px;
+  text-transform: uppercase;
+}
+.footer-links-container .footer-flex-column li {
+  display: block;
+  position: relative;
+  margin: 15px 7px;
+  color: #666;
+  text-align: center;
+  font-size: 16px;
+  text-transform: capitalize;
+  cursor: pointer;
+}
+.footer-links-container .footer-flex-column li:hover {
+  color: #999;
+}
+@media screen and (max-width: 800px) {
+  .fixed-nav-bar .logo {
+    left: 50%;
+    transform: translate(-50%, -50%);
+  }
+  .deer-section {
+    min-height: 660px;
+    background-position: right bottom;
+    background-size: 300px 425px;
+  }
+}
+@media screen and (max-width: 500px) {
+  .social-buttons-container {
+    max-width: 200px;
+  }
+}
+@-webkit-keyframes spinnerooni {
+  0% {
+    transform: rotate(-45deg);
+  }
+  7.5% {
+    transform: rotate(-65deg);
+  }
+  25% {
+    transform: rotate(315deg);
+  }
+  100% {
+    transform: rotate(315deg);
+  }
+}
+@keyframes spinnerooni {
+  0% {
+    transform: rotate(-45deg);
+  }
+  7.5% {
+    transform: rotate(-65deg);
+  }
+  25% {
+    transform: rotate(315deg);
+  }
+  100% {
+    transform: rotate(315deg);
+  }
+}
+@-webkit-keyframes colorChange {
+  0% {
+    background-color: #e91e63;
+  }
+  11% {
+    background-color: #f44336;
+  }
+  22% {
+    background-color: #ff9800;
+  }
+  33% {
+    background-color: #ffeb3b;
+  }
+  44% {
+    background-color: #8bc34a;
+  }
+  55% {
+    background-color: #009688;
+  }
+  66% {
+    background-color: #00bcd4;
+  }
+  77% {
+    background-color: #2196f3;
+  }
+  88% {
+    background-color: #673ab7;
+  }
+  100% {
+    background-color: #9c27b0;
+  }
+}
+@keyframes colorChange {
+  0% {
+    background-color: #e91e63;
+  }
+  11% {
+    background-color: #f44336;
+  }
+  22% {
+    background-color: #ff9800;
+  }
+  33% {
+    background-color: #ffeb3b;
+  }
+  44% {
+    background-color: #8bc34a;
+  }
+  55% {
+    background-color: #009688;
+  }
+  66% {
+    background-color: #00bcd4;
+  }
+  77% {
+    background-color: #2196f3;
+  }
+  88% {
+    background-color: #673ab7;
+  }
+  100% {
+    background-color: #9c27b0;
+  }
+}
+
+</style>
 
 </html>
