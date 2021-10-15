@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_05_07_034059) do
+ActiveRecord::Schema.define(version: 2021_10_15_220142) do
 
   create_table "questions", charset: "utf8", force: :cascade do |t|
     t.text "content"
@@ -18,6 +18,9 @@ ActiveRecord::Schema.define(version: 2021_05_07_034059) do
     t.boolean "enpathy"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.string "question_contents"
+    t.string "answer_list", null: false
+    t.boolean "choosen"
   end
 
   create_table "users", charset: "utf8", force: :cascade do |t|
