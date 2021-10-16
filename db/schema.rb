@@ -10,7 +10,15 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_10_15_220142) do
+ActiveRecord::Schema.define(version: 2021_10_16_105926) do
+
+  create_table "answers", charset: "utf8", force: :cascade do |t|
+    t.text "answer1"
+    t.text "answer2"
+    t.text "answer3"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+  end
 
   create_table "questions", charset: "utf8", force: :cascade do |t|
     t.text "content"
