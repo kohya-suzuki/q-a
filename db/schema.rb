@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_10_16_220229) do
+ActiveRecord::Schema.define(version: 2021_10_21_052416) do
 
   create_table "answers", charset: "utf8", force: :cascade do |t|
     t.text "answer1"
@@ -33,6 +33,10 @@ ActiveRecord::Schema.define(version: 2021_10_16_220229) do
     t.boolean "resolved"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.bigint "questions_id"
+    t.bigint "user_id", null: false
+    t.index ["questions_id"], name: "index_question_users_on_questions_id"
+    t.index ["user_id"], name: "index_question_users_on_user_id"
   end
 
   create_table "questions", charset: "utf8", force: :cascade do |t|
@@ -42,8 +46,16 @@ ActiveRecord::Schema.define(version: 2021_10_16_220229) do
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.string "question_contents"
-    t.string "answer_list", null: false
     t.boolean "choosen"
+  end
+
+  create_table "user_answers", charset: "utf8", force: :cascade do |t|
+    t.bigint "user_id", null: false
+    t.bigint "answer_id", null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["answer_id"], name: "index_user_answers_on_answer_id"
+    t.index ["user_id"], name: "index_user_answers_on_user_id"
   end
 
   create_table "users", charset: "utf8", force: :cascade do |t|
@@ -59,4 +71,8 @@ ActiveRecord::Schema.define(version: 2021_10_16_220229) do
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
 
+  add_foreign_key "question_users", "questions", column: "questions_id"
+  add_foreign_key "question_users", "users"
+  add_foreign_key "user_answers", "answers"
+  add_foreign_key "user_answers", "users"
 end
