@@ -23,7 +23,7 @@
     <link rel="icon" href="/favicon.ico">
     <link rel="apple-touch-icon" href="/apple-touch-icon.png">
     
-    <link rel="stylesheet" href="/Users/suzukikohya/myapp/sambo/app/assets/stylesheets/reset.css">
+    
     </head>
   <!----------------- /Head --------------------------->
 
@@ -31,21 +31,17 @@
   <!----------------- Header --------------------------->
   <!-- codepenのナビゲーションの記述 -->
   <body>
-    <header>
+    <header role="banner">
       <div id="cd-logo">
-        
-        <a class="nav-title" href="/home/index"><h1>SAMBO 〜家事育児スキル認定アプリ〜</h1></a>
-        <nav class="main-nav">
-          <ul>
-            <!-- inser more links here -->
-             <li><a class="cd-signin" href="#0"><%= link_to 'ログイン', new_user_session_path, class: 'post' %></a></li>
-             <li><a class="cd-signup" href="#0"><%= link_to 'サインアップ', new_user_registration_path, class: 'post' %></a></li>
-             <li><a class="cd-logout" href="#0"><%= link_to 'ログアウト', destroy_user_session_path, method: :delete %> </li>
-            <!-- <li><a class="cd-signin" href="#0">ログイン</a></li> -->
-            <!-- <li><a class="cd-signup" href="#0">サインアップ</a></li> -->
-          </ul>
-        </nav>
-      </div>
+        <a class="nav-title" href="/home/index"><h1>SAMBO <span>〜家事育児スキル認定アプリ〜</span></h1></a>
+      </div> 
+      <nav class="main-nav">
+        <ul>
+            <li><a class="cd-signin" href="#0">ログイン<%= link_to 'ログイン', new_user_session_path, class: 'post' %></a></li>
+            <li><a class="cd-signup" href="#0">サインアップ<%= link_to 'サインアップ', new_user_registration_path, class: 'post' %></a></li>
+            <li><a class="cd-logout" href="#0">ログアウト<%= link_to 'ログアウト', destroy_user_session_path, class: 'delete', method: :delete %> </a></li>
+        </ul>
+      </nav>
     </header>
 
     
