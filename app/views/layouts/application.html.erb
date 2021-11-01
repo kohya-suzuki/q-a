@@ -48,14 +48,16 @@
 
 
     <!----------------- /Header --------------------------->
-    <% if user_signed_in? %>     
-        <strong><%= link_to 'ユーザー', start_questions_path %></strong> 
-      <a> <%= current_user.username %> さん おかえりなさい！ </a>
-      <% else %>
-      <a>ゲストさんこんにちは！</a>
-       <strong><%= link_to 'ユーザー', home_index_path %></strong> 
-      
-    <% end %>
+    <div class="rogin-message">
+      <% if user_signed_in? %>     
+          <strong><%= link_to 'ユーザー', start_questions_path %></strong> 
+        <a> <%= current_user.username %> さん おかえりなさい！ </a>
+        <% else %>
+        <a>ゲストさんこんにちは！</a>
+        <strong><%= link_to 'ユーザー', home_index_path %></strong> 
+        
+      <% end %>
+    </div>
     <%= yield %>
 
 
