@@ -1,0 +1,22 @@
+:root{
+  --main-color: #444444;
+  --main-color-yellow: #FFF876;
+  --main-color-green: #92CCCC;
+  
+  --main-bg-color-white: #FFFFFF;
+  --main-bg-color-gray: #8E8E8E;
+  --main-bg-color-darkgray: #444444;
+  --main-bg-color-yellow: #FFF876;
+  --main-bg-color-green: #92CCCC;
+  --main-bg-color-beige: #F7F4E4;
+  
+  --main-dropshadow: #00000029;
+  --main-shadow:  0px 3px 15px -5px #777777;
+  }
+
+  .div{
+    /* display: inline; */
+  }
+.quiz_ans_area ul{
+  justify-content: center;
+}

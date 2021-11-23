@@ -18,6 +18,8 @@
 
 
     <%= stylesheet_link_tag 'application', media: 'all' %>
+    # <%= stylesheet_link_tag 'reset', media: 'all' %>
+
 
     <meta name="description" content="ページの説明文">
     <link rel="icon" href="/favicon.ico">
@@ -36,10 +38,8 @@
         <a class="nav-title">
           <h1>
             <a href="/home/index">
-              # <img src="../../assets/images/logo.svg" alt="Sambo">
-              <% image_tag "/penguin-c.png" %>
-              
-              <span>〜家事育児スキル認定アプリ〜</span>
+              <%= image_tag 'logo.svg', alt: 'sambo', class: 'titleimage' %>
+              <span>家事育児スキル認定アプリ</span>
             </a>
           </h1>
         </a>
@@ -52,10 +52,6 @@
         </ul>
       </nav>
     </header>
-
-    
-
-
     <!----------------- /Header --------------------------->
     <div class="rogin-message">
       <% if user_signed_in? %>     
@@ -64,9 +60,10 @@
         <% else %>
         <a>ゲストさんこんにちは！</a>
         <strong><%= link_to 'ユーザー', home_index_path %></strong> 
-        
       <% end %>
     </div>
+    
+
     <%= yield %>
 
 

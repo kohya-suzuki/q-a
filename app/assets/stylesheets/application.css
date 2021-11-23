@@ -14,15 +14,23 @@
 --main-bg-color-beige: #F7F4E4;
 
 --main-dropshadow: #00000029;
+--main-shadow:  0px 3px 15px -5px #777777;
 }
 body {
   font-size: 100%;
   font-family: "PT Sans", sans-serif;
   color: var(--main-color);
   background-color: var(--main-bg-color-beige);
+  margin: 0;
 }
 a {
   text-decoration: none;
+}
+p {
+  margin: 0;
+}
+img {
+  vertical-align: bottom;
 }
 
 header {
@@ -30,7 +38,7 @@ header {
   justify-content: space-between;
   align-items: center;
   background-color: #88c4c4;
-  
+  height: 70px;
 }
 header a{
   color: var(--main-color-yellow);
@@ -43,12 +51,10 @@ h1 span {
   font-size: 16px;
 }
 h1 img {
-  width: 100px;
+  width: 130px;
 }
 
-.main-nav a{
-  color: var(--main-color);
-}
+
 .main-nav ul {
   display: flex;
   align-items: center;
@@ -59,9 +65,12 @@ h1 img {
   }
 
 .main-nav li a{
-  border-radius: 20px;
+  color: var(--main-color);
+  border-radius: 60px;
   background-color: #FFFFFF;
-  padding: 15px;
+  padding: 10px 15px;
+  margin-right: 10px;
+  font-size: 14px;
 }
 .main-nav .post {
   display: none;
@@ -73,7 +82,42 @@ h1 img {
 
 .rogin-message  {
   text-align: center;
+  margin: 20px auto;
 }
+/* --------------------------------
+mv
+--------------------------------*/
+.mv{
+  position: relative;
+  margin-bottom: 150px;
+}
+.mv .mv-bg{
+  width: 60%;
+  height: 500px;
+  background-color: var(--main-bg-color-gray);
+  border-radius: 30px;
+  /* margin-right:  ; */
+  margin-left: 20%;
+  padding: 30px 100px;
+} 
+.mv .titleimage{
+  width: 320px;
+}
+.mv span{
+  display: block;
+  color: var(--main-color-yellow);
+  margin-bottom: 20px;
+}
+.mv p{
+  color: var(--main-bg-color-white);
+}
+.mv .penguin{
+  width: 250px;
+  bottom: -10px;
+  left: 120px;
+  position: absolute;
+}
+
 /* -------------------------------- 
 Main components 
 -------------------------------- */
@@ -83,8 +127,8 @@ Main components
   box-sizing: border-box;
 }
 
- cd-logo  {
-  /* position: relative; */
+ /* cd-logo  {
+   position: relative; 
   height: 50px;
 }
   cd-logo span {
@@ -94,7 +138,7 @@ main-nav {
   display: flex;
   justify-content: space-between;
   
-}
+} */
 /* header cd-logo {
   display: inline-block;
   
@@ -121,9 +165,9 @@ main-nav {
    clear: both;
  } 
  */
-@media only screen and (min-width: 768px) {
+/* @media only screen and (min-width: 768px) {
   header {
-    height: 80px;
+    height: 70px;
   }
   header cd-logo {
     margin: 20px 0 0 5%;
@@ -133,8 +177,11 @@ main-nav {
     -o-transform: scale(1);
     transform: scale(1);
   }
+} */
+.level-select a{
+  color: var(--main-color-yellow);
+  font-size: 18px;
 }
-
 
 
 /* -------------------------------- 
@@ -496,6 +543,7 @@ xsigin/signup popup
 			position: relative;
 			/*box-shadow: 0 0 4px rgba(0,0,0,.14), 0 4px 8px rgba(0,0,0,.28);*/
 			transition: all .25s;
+      box-shadow: var(--main-shadow);
 		}
 		.veen button.login{
 			border-color: var(--main-bg-color-green);
@@ -504,6 +552,8 @@ xsigin/signup popup
     .veen button.signup{
 			border-color: var(--main-bg-color-yellow);
 			background: var(--main-bg-color-yellow);
+      box-shadow: var(--main-shadow);
+
 		}
 
 		.veen .move button.dark{
@@ -511,8 +561,9 @@ xsigin/signup popup
 			background: #e0b722;
 		}
 		.veen .splits p{
-			font-size: 18px;
-		}
+			font-size: 16px;
+      margin-bottom: 20px;
+    }
 		.veen button:active{
 			box-shadow: none;			
 		}
@@ -657,6 +708,9 @@ xsigin/signup popup
   box-sizing: border-box;
   color: #fff;
 }
+.footer p{
+  margin: 0;
+}
 .social-buttons-container {
   min-height: 100px;
   width: 100%;
@@ -743,97 +797,5 @@ xsigin/signup popup
 @media screen and (max-width: 500px) {
   .social-buttons-container {
     max-width: 200px;
-  }
-}
-@-webkit-keyframes spinnerooni {
-  0% {
-    transform: rotate(-45deg);
-  }
-  7.5% {
-    transform: rotate(-65deg);
-  }
-  25% {
-    transform: rotate(315deg);
-  }
-  100% {
-    transform: rotate(315deg);
-  }
-}
-@keyframes spinnerooni {
-  0% {
-    transform: rotate(-45deg);
-  }
-  7.5% {
-    transform: rotate(-65deg);
-  }
-  25% {
-    transform: rotate(315deg);
-  }
-  100% {
-    transform: rotate(315deg);
-  }
-}
-@-webkit-keyframes colorChange {
-  0% {
-    background-color: #e91e63;
-  }
-  11% {
-    background-color: #f44336;
-  }
-  22% {
-    background-color: #ff9800;
-  }
-  33% {
-    background-color: #ffeb3b;
-  }
-  44% {
-    background-color: #8bc34a;
-  }
-  55% {
-    background-color: #009688;
-  }
-  66% {
-    background-color: #00bcd4;
-  }
-  77% {
-    background-color: #2196f3;
-  }
-  88% {
-    background-color: #673ab7;
-  }
-  100% {
-    background-color: #9c27b0;
-  }
-}
-@keyframes colorChange {
-  0% {
-    background-color: #e91e63;
-  }
-  11% {
-    background-color: #f44336;
-  }
-  22% {
-    background-color: #ff9800;
-  }
-  33% {
-    background-color: #ffeb3b;
-  }
-  44% {
-    background-color: #8bc34a;
-  }
-  55% {
-    background-color: #009688;
-  }
-  66% {
-    background-color: #00bcd4;
-  }
-  77% {
-    background-color: #2196f3;
-  }
-  88% {
-    background-color: #673ab7;
-  }
-  100% {
-    background-color: #9c27b0;
   }
 }

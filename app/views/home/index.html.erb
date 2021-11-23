@@ -22,6 +22,18 @@
   <!----------------- /Header --------------------------->
   <!----------------- Body --------------------------->
     <body>
+
+    <div class="mv">
+      <div class="mv-bg">
+        <%= image_tag 'logo.svg', alt: 'sambo', class: 'titleimage' %>
+        <span>家事育児スキル認定アプリ</span>
+        <p>説明文</p>
+      </div>
+      <div class="mv-penguin">
+        <%= image_tag 'penguin.png', alt: 'penguin', class: 'penguin' %>
+      </div>
+    </div>
+
     <div class="veen">
       <div class="login-btn splits">
         <p>おかえりなさい！</p>
@@ -31,17 +43,18 @@
         <!-- <p>はじめての方はこちら</p> -->
         <!-- <button>サインアップ</button> -->
           <div class="level-select">
-            <%= link_to "初級", start_questions_path %>
-            
-            <p>初めての方はこちら</p>
-          </div>
-          <div class="normal-question">
-            <%= link_to "中級", start_questions_path%>
-            <p>人生の必須知識を<br>身に着けましょう</p>
-          </div>
-          <div class="hard-question">
-            <%= link_to "上級", start_questions_path %>
-            <p>「パートナー」はおまかせあれ</p>
+            <div class="easy-question">
+              <%= link_to "初級", start_questions_path %>
+              <p>初めての方はこちら</p>
+            </div>
+            <div class="normal-question">
+              <%= link_to "中級", start_questions_path%>
+              <p>人生の必須知識を<br>身に着けましょう</p>
+            </div>
+            <div class="hard-question">
+              <%= link_to "上級", start_questions_path %>
+              <p>「パートナー」はおまかせあれ</p>
+            </div>
           </div>
       </div>
 
