@@ -14,9 +14,24 @@
   --main-shadow:  0px 3px 15px -5px #777777;
   }
 
-  .div{
+.div{
     /* display: inline; */
   }
+ul{
+  /* liの点を消す */
+  list-style-type: none;
+  /* liの点を消した後の余白を消す */
+  padding-left: 0px;
+}
+ .quiz_area{
+  text-align: center;
+} 
+.quiz_set{
+  margin: auto 15% ;
+}
+.quiz_result{
+  margin: 0px 15%;
+}
 .quiz_ans_area ul{
   justify-content: center;
 }

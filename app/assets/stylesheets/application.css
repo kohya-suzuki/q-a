@@ -54,6 +54,9 @@ h1 img {
   width: 130px;
 }
 
+.cd-logo {
+  display: inline-flex;
+}
 
 .main-nav ul {
   display: flex;
