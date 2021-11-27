@@ -14,9 +14,7 @@
   --main-shadow:  0px 3px 15px -5px #777777;
   }
 
-.div{
-    /* display: inline; */
-  }
+
 ul{
   /* liの点を消す */
   list-style-type: none;
@@ -27,7 +25,17 @@ ul{
   text-align: center;
 } 
 .quiz_set{
+  /* 問題の表示スペースの左右のマージン*/
   margin: auto 15% ;
+  /* 問題の表示スペースのbg */
+  background-color: var(--main-bg-color-white);
+  height: 400px;
+}
+.quiz_set span{
+  margin: 40px auto;
+}
+.quiz_no{
+  margin: 40px auto;
 }
 .quiz_result{
   margin: 0px 15%;
