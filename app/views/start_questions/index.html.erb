@@ -28,13 +28,12 @@ $(function(){
      var quiz_cnt = 0;
      var quiz_fin_cnt = <%= Question.all.count %>;
      var quiz_success_cnt = 0;
-    
-    
+
     var aryQuiz = [];
     aryQuiz.push( 
         {
             
-            question : '次のうち、海に面していない県はどれ？',
+            question : '<%= show %>',
             answer : ['岐阜', '愛知', '三重']
         }
         ,{

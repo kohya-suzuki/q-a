@@ -76,7 +76,7 @@ ul{
 .child-penguin{
   width: 90px;
   /* 子ペンギンの立ち位置をbottomで指定、positionで強制 */
-  bottom: 0px;
-  position: absolute;
+  /* bottom: 0px; */
+  /* position: absolute; */
   /* align-items: center; */
 }

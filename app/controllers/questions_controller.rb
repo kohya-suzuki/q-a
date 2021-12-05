@@ -15,6 +15,11 @@ class QuestionsController < ApplicationController
       @questions = Question.new
     end
 
+    def show
+       @question = Question.find(1)
+       helper_method :show
+    end
+    
     def create
       @questions = Question.new(questions_params)
       if @questions.save
