@@ -26,14 +26,15 @@ $(function(){
      var quizArea = $('.quiz_area'); 
      var quiz_html = quizArea.html(); 
      var quiz_cnt = 0;
-     var quiz_fin_cnt = <%= Question.all.count %>;
+    
+     var quiz_fin_cnt = <%= Question.all.count %>; 
      var quiz_success_cnt = 0;
 
     var aryQuiz = [];
     aryQuiz.push( 
         {
             
-            question : '<%= show %>',
+            question : '<%= @show %>',
             answer : ['岐阜', '愛知', '三重']
         }
         ,{
@@ -94,7 +95,7 @@ $(function(){
         }, 1500);
     });
 
-    //問題を表示する関数
+     //問題を表示する関数
     function quizShow(){
         //何問目かを表示
         quizArea.find('.quiz_no').text((quiz_cnt + 1));
@@ -118,7 +119,7 @@ $(function(){
         });
     }
     
-    //結果を表示する関数
+     //結果を表示する関数
     function quizResult(){
         quizArea.find('.quiz_set').hide();
         var text = quiz_fin_cnt + '問中' + quiz_success_cnt + '問正解！';
@@ -130,7 +131,7 @@ $(function(){
         quizArea.find('.quiz_result').show();
     }
 
-    //配列をシャッフルする関数
+     //配列をシャッフルする関数
     function arrShuffle(arr){
         for(i = arr.length - 1; i > 0; i--){
             var j = Math.floor(Math.random() * (i + 1));

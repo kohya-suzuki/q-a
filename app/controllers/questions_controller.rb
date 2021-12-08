@@ -1,4 +1,5 @@
 class QuestionsController < ApplicationController
+  helper_method :show
 
   def new
     @question = Question.new(question_params)
@@ -12,16 +13,18 @@ class QuestionsController < ApplicationController
   end
   
     def new
-      @questions = Question.new
+      @question = Question.new
     end
 
     def show
-       @question = Question.find(1)
-       helper_method :show
+      #  @question = Question.find(1)
+      @questions = Question.all
+      @questions.map { |question| question.content }
+      
     end
     
     def create
-      @questions = Question.new(questions_params)
+      @question = Question.new(questions_params)
       if @questions.save
   
         flash[:notice] = "問題を作成しました！"
