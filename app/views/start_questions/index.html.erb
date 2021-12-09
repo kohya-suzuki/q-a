@@ -30,11 +30,19 @@ $(function(){
      var quiz_fin_cnt = <%= Question.all.count %>; 
      var quiz_success_cnt = 0;
 
+     var sourceStr = "&" ;
+     var a = sourceStr.replace( "&" , "" );
+    
+     var question = ['<%= Question.pluck(:content) %>'];
+     
+
+     console.log(question);
+     
     var aryQuiz = [];
     aryQuiz.push( 
         {
             
-            question : '<%= @show %>',
+            question : question,
             answer : ['岐阜', '愛知', '三重']
         }
         ,{
@@ -55,7 +63,7 @@ $(function(){
         }
     );
     
-   
+
 
     quizReset();
 
@@ -104,7 +112,7 @@ $(function(){
         //正解の回答を取得する
         var success = aryQuiz[quiz_cnt]['answer'][0];
         //現在の選択肢表示を削除する
-        console.log('削除');
+
         quizArea.find('.quiz_ans_area ul').empty();
         //問題文の選択肢をシャッフルさせる(自作関数) .concat()は参照渡し対策
         var aryHoge = arrShuffle(aryQuiz[quiz_cnt]['answer'].concat());
