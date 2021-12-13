@@ -24,3 +24,4 @@ Answer.create(:answer1 => 'はぐみん', :answer2 => 'いくみん', :answer3 =
 Answer.create(:answer1 => 'さつまいも', :answer2 => 'ほうれんそう', :answer3 => 'じゃがいも')
 Answer.create(:answer1 => 'ゲップをさせる', :answer2 => 'みずを飲ませる', :answer3 => '口を拭く')
 
+AdminUser.create!(email: 'admin@example.com', password: 'password', password_confirmation: 'password') if Rails.env.development?

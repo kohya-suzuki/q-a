@@ -10,7 +10,7 @@ class ApplicationController < ActionController::Base
         root_url  #指定したいパスに変更
       else
         flash[:notice] = "ログインできませんでした。" 
-        new_profile_path  #指定したいパスに変更
+        
       end
   end
   

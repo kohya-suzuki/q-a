@@ -33,16 +33,19 @@ $(function(){
      var sourceStr = "&" ;
      var a = sourceStr.replace( "&" , "" );
     
-     var question = ['<%= Question.pluck(:content) %>'];
+     var question = '<%= Question.pluck(:content) %>';
      
 
-     console.log(question);
+    console.log(ary);
+
+
+
      
     var aryQuiz = [];
     aryQuiz.push( 
         {
             
-            question : question,
+            question : ary,
             answer : ['岐阜', '愛知', '三重']
         }
         ,{
