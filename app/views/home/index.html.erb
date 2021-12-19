@@ -3,22 +3,19 @@
   
 <!----------------- Header --------------------------->
     <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>ページのタイトル</title>
-    
-    <script type="module">
-      document.documentElement.classList.remove('no-js');
-      document.documentElement.classList.add('js');
-    </script>
-
-    
-
-    <meta name="description" content="ページの説明文">
-    <link rel="icon" href="/favicon.icon.png">
-    <link rel="apple-touch-icon" href="/apple-touch-icon.png">
-    <link rel="manifest" href="/my.webmanifest">
-  </head>
+      <meta charset="UTF-8">
+      <meta name="viewport" content="width=device-width, initial-scale=1">
+      <title>ページのタイトル</title>
+      
+      <script type="module">
+        document.documentElement.classList.remove('no-js');
+        document.documentElement.classList.add('js');
+      </script>
+      <meta name="description" content="ページの説明文">
+      <link rel="icon" href="/favicon.icon.png">
+      <link rel="apple-touch-icon" href="/apple-touch-icon.png">
+      <link rel="manifest" href="/my.webmanifest">
+    </head>
   <!----------------- /Header --------------------------->
   <!----------------- Body --------------------------->
     <body>
@@ -65,13 +62,8 @@
             <input type="mail" name="">
             <label>メールアドレスかユーザーネーム</label>
 
-            # device/sessions/new.html.erbからとってきた記述
-            <%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
-              <div class="field">
-                <%= f.label :email %><br />
-                <%= f.email_field :email, autofocus: true, autocomplete: "email" %>
-              </div>
-            <% end %>
+            
+            
 
           </div>
           <div class="passwd">
