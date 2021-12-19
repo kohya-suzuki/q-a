@@ -33,31 +33,34 @@ $(function(){
      var sourceStr = "&" ;
      var a = sourceStr.replace( "&" , "" );
 
-     var question = ['<%= Question.pluck(:content) %>'];
-    
-     console.log(question);
+     var question = <%= Question.pluck(:content).to_json.html_safe %>;
 
- 
+     console.log(typeof(question));
+
+    
     var aryQuiz = [];
     aryQuiz.push( 
         {
-            question : question,
-            answer : ['岐阜', '愛知', '三重']
+            question : question[0],
+            
+            <% question_id = Question.find_by(content: Question.pluck(:content)[0]).id %>
+            <% answer_id = QuestionAnswer.find_by(question_id: question_id ).answer_id %>
+            answer : <%= Answer.where(id: answer_id).pluck(:answer1, :answer2, :answer3)[0].to_json.html_safe %>
         }
         ,{
-            question : '祝日「山の日」は何日？',
+            question : question[1],
             answer : ['8月11日', '8月24日', '8月17日']
         }
         ,{
-            question : '東京ヤクルトスワローズのホーム球場はどれ？',
+            question : question[2],
             answer : ['明治神宮野球場', '東京ドーム', 'メットライフドーム']
         }
         ,{
-            question : '元号「平成」が終わったのはいつ？',
+            question : question[3],
             answer : ['2019年4月30日', '2019年3月31日', '2019年5月31日']
         }
         ,{
-            question : 'SMAPが出したシングル曲で最も売れたのはどれ？',
+            question : question[4],
             answer : ['世界に一つだけの花', 'オレンジ', '青いイナズマ']
         }
     );
