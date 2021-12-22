@@ -16,8 +16,14 @@
   --main-shadow:  0px 3px 15px -5px #777777;
 }
 
+html{
+  /*16pxの62.5%分=10px=1remと設定*/
+  font-size: 62.5%;
+  }
+  
+
 body {
-  font-size: 100%;
+  font-size:1.6rem;/* 16px*/
   font-family: "PT Sans", sans-serif;
   color: var(--main-color);
   background-color: var(--main-bg-color-beige);
@@ -43,11 +49,11 @@ header a{
   color: var(--main-color-yellow);
 }
 h1 {
-  font-size: 30px;
+  font-size: 3rem;
   margin-left: 30px;
 }
 h1 span {
-  font-size: 16px;
+  font-size: 1.6rem;
 }
 h1 img {
   width: 130px;
@@ -70,7 +76,7 @@ h1 img {
   background-color: #FFFFFF;
   padding: 10px 15px;
   margin-right: 10px;
-  font-size: 14px;
+  font-size: 1.4rem;
 }
 .main-nav .post {
   display: none;
@@ -120,7 +126,7 @@ mainview
 
 .level-select a{
   color: var(--main-color-yellow);
-  font-size: 18px;
+  font-size: 1.8rem;
 }
 
 /*----------------------------------------------------------------------------------
@@ -167,7 +173,7 @@ mainview
   background: #e0b722;
 }
 .maincontent p{
-  font-size: 16px;
+  font-size: 1.6rem;
   margin-bottom: 20px;
 }
 .maincontent button:active{
@@ -221,7 +227,7 @@ mainview
 .maincontent .left-formpanel label{
   position: absolute;
   top: -7px;
-  font-size: 12px;
+  font-size: 1.2rem;
   white-space: nowrap;
   background: #fff;
   text-align: left;
@@ -346,7 +352,7 @@ Footer
   max-width: 200px;
   margin: auto;
   color: #aaa;
-  font-size: 18px;
+  font-size: 1.8rem;
   text-transform: uppercase;
 }
 .footer-links-container .footer-flex-column li {
@@ -355,22 +361,19 @@ Footer
   margin: 15px 7px;
   color: #666;
   text-align: center;
-  font-size: 16px;
+  font-size: 1.6rem;
   text-transform: capitalize;
   cursor: pointer;
 }
 .footer-links-container .footer-flex-column li:hover {
   color: #999;
 }
-@media screen and (max-width: 800px) {
-  .fixed-nav-bar .logo {
-    left: 50%;
-    transform: translate(-50%, -50%);
-  }
-  
+/* タブレット 600px以上の範囲に収めるブレイクポイント */
+@media screen and (min-width:600px){
+
 }
-@media screen and (max-width: 500px) {
-  .social-buttons-container {
-    max-width: 200px;
-  }
+/* PC 1,025px以上の範囲に収めるブレイクポイント*/
+@media screen and (min-width: 1025px) {
+  
+  
 }

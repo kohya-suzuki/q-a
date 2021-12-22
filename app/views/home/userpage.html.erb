@@ -20,18 +20,16 @@
 
   
   <!-- body -->
-  <!-- Rubyのプログラムを埋め込むために、拡張子は.rbにしなければならない？or部分で埋め込むメソッドを使う？ -->
-  <!-- この中身をeasy/normal/hardのクリックで振り分けるrubyプログラムを書く  -->
   <body>
     <!-- container -->
     <div class="container">
       <div class="user-status">
+      <li><a class="cd-logout" href="#0">ログアウト<%= link_to 'ログアウト', destroy_admin_user_session_path, class: 'delete', method: :delete %> </a></li>
         <%= notice %>
         <h1>ユーザーページ</h1>
         
         <div class="user-icon"> <!-- ログイン中のユーザーのアイコンや情報を表示 -->
           <img src="img/#" alt="user-icon" id=>
-          # 抜いたもの①戻す
         </div>
         
 
