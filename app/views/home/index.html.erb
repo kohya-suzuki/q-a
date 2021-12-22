@@ -18,8 +18,8 @@
     </head>
   <!----------------- /Header --------------------------->
   <!----------------- Body --------------------------->
-    <body>
-
+  <body>
+  <!----------------- mainviewの表示 --------------------------->
     <div class="mv">
       <div class="mv-bg">
         <%= image_tag 'logo.svg', alt: 'sambo', class: 'titleimage' %>
@@ -30,15 +30,9 @@
         <%= image_tag 'penguin.png', alt: '親ペンギンの画像', title:'親ペンギン',class: 'penguin' %>
       </div>
     </div>
-
-    <div class="veen">
-      <div class="login-btn splits">
-        <p>おかえりなさい！</p>
-        <button class="active">ログイン</button>
-      </div>
-      <div class="rgstr-btn splits">
-        <!-- <p>はじめての方はこちら</p> -->
-        <!-- <button>サインアップ</button> -->
+<!------------ 中央パネルの右側表示 ----------------->
+    <div class="maincontent">
+      <div class="rgstr-btn">
           <div class="level-select">
             <div class="easy-question">
               <%= link_to "初級", start_questions_path %>
@@ -54,28 +48,22 @@
             </div>
           </div>
       </div>
-
-      <div class="wrapper">
+<!------------ 中央パネルの左側表示 ----------------->
+      <div class="left-formpanel">
         <form id="login" tabindex="500">
           <h3>ログイン</h3>
           <div class="mail">
             <input type="mail" name="">
             <label>メールアドレスかユーザーネーム</label>
-
-            
-            
-
           </div>
           <div class="passwd">
             <input type="password" name="">
             <label>パスワード</label>
           </div>
-
           <div class="submit">
             <button class="login">ログイン</button>
           </div>
         </form>
-
         <form id="login" tabindex="500" style="padding-top: 0%;">
             <h3>初めての方はこちら</h3>
             <div class="submit">
@@ -83,36 +71,30 @@
             </div>
         </form>
 
-
-        <form id="register" tabindex="502">
-          <h3>サインアップ</h3>
-          <div class="name">
-            <input type="text" name="">
-            <label>お名前</label>
-          </div>
-          <div class="mail">
-            <input type="mail" name="">
-            <label>メールアドレス</label>
-          </div>
-          <div class="uid">
-            <input type="text" name="">
-            <label>ユーザーネーム</label>
-          </div>
-          <div class="passwd">
-            <input type="password" name="">
-            <label>パスワード</label>
-          </div>
-          <div class="submit">
-            <button class="signup">サインアップ</button>
-          </div>
-        </form>
+<!------------ ポップアップのフォーム表示を実装したらコメントアウトをとる ----------------->
+        # <form id="register" tabindex="502">
+        #   <h3>サインアップ</h3>
+        #   <div class="name">
+        #     <input type="text" name="">
+        #     <label>お名前</label>
+        #   </div>
+        #   <div class="mail">
+        #     <input type="mail" name="">
+        #     <label>メールアドレス</label>
+        #   </div>
+        #   <div class="uid">
+        #     <input type="text" name="">
+        #     <label>ユーザーネーム</label>
+        #   </div>
+        #   <div class="passwd">
+        #     <input type="password" name="">
+        #     <label>パスワード</label>
+        #   </div>
+        #   <div class="submit">
+        #     <button class="signup">サインアップ</button>
+        #   </div>
+        # </form>
       </div>
-    </div>	
-
-
-        
-
+    </div>
   </body>
-  <!-----------------/Body --------------------------->
-
 </html>

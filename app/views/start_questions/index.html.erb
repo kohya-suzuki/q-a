@@ -36,32 +36,41 @@ $(function(){
      var question = <%= Question.pluck(:content).to_json.html_safe %>;
 
      console.log(typeof(question));
-
-    
-    var aryQuiz = [];
-    aryQuiz.push( 
-        {
-            question : question[0],
-            
+     
+     
+     
+     var aryQuiz = [];
+     aryQuiz.push( 
+         {
             <% question_id = Question.find_by(content: Question.pluck(:content)[0]).id %>
             <% answer_id = QuestionAnswer.find_by(question_id: question_id ).answer_id %>
+            question : question[0],
+            answer : <%= Answer.where(id: answer_id).pluck(:answer1, :answer2, :answer3)[0].to_json.html_safe %>
+
+        }
+        ,{
+            <% question_id = Question.find_by(content: Question.pluck(:content)[1]).id %>
+            <% answer_id = QuestionAnswer.find_by(question_id: question_id ).answer_id %>
+            question : question[1],
             answer : <%= Answer.where(id: answer_id).pluck(:answer1, :answer2, :answer3)[0].to_json.html_safe %>
         }
         ,{
-            question : question[1],
-            answer : ['8月11日', '8月24日', '8月17日']
-        }
-        ,{
+            <% question_id = Question.find_by(content: Question.pluck(:content)[1]).id %>
+            <% answer_id = QuestionAnswer.find_by(question_id: question_id ).answer_id %>
             question : question[2],
-            answer : ['明治神宮野球場', '東京ドーム', 'メットライフドーム']
+            answer : <%= Answer.where(id: answer_id).pluck(:answer1, :answer2, :answer3)[0].to_json.html_safe %>
         }
         ,{
+            <% question_id = Question.find_by(content: Question.pluck(:content)[1]).id %>
+            <% answer_id = QuestionAnswer.find_by(question_id: question_id ).answer_id %>
             question : question[3],
-            answer : ['2019年4月30日', '2019年3月31日', '2019年5月31日']
+            answer : <%= Answer.where(id: answer_id).pluck(:answer1, :answer2, :answer3)[0].to_json.html_safe %>
         }
         ,{
+            <% question_id = Question.find_by(content: Question.pluck(:content)[1]).id %>
+            <% answer_id = QuestionAnswer.find_by(question_id: question_id ).answer_id %>
             question : question[4],
-            answer : ['世界に一つだけの花', 'オレンジ', '青いイナズマ']
+            answer : <%= Answer.where(id: answer_id).pluck(:answer1, :answer2, :answer3)[0].to_json.html_safe %>
         }
     );
     

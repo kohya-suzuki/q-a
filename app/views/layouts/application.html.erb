@@ -11,21 +11,10 @@
         document.documentElement.classList.remove('no-js');
         document.documentElement.classList.add('js');
       </script>
-
-    <!-- # jQueryの導入 -->
-
-    
-
-
     <%= stylesheet_link_tag 'application', media: 'all' %>
-    # <%= stylesheet_link_tag 'reset', media: 'all' %>
-
-
     <meta name="description" content="ページの説明文">
     <link rel="icon" href="/favicon.ico">
     <link rel="apple-touch-icon" href="/apple-touch-icon.png">
-    
-    
     </head>
   <!----------------- /Head --------------------------->
 
@@ -63,9 +52,7 @@
       <% end %>
     </div>
     
-
     <%= yield %>
-
 
   <!----------------- Footer --------------------------->
   <!------------- codepenのフッター --------------->
