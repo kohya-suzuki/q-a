@@ -71,11 +71,11 @@ h1 img {
     content: none;
   }
 .main-nav li a{
+
+  padding: 10px 8px;
   color: var(--main-color);
   border-radius: 60px;
   background-color: #FFFFFF;
-  padding: 10px 15px;
-  margin-right: 10px;
   font-size: 1.4rem;
 }
 .main-nav .post {
@@ -90,45 +90,117 @@ h1 img {
   margin: 20px auto;
 }
 
+/* タブレット表示で600px以上の範囲に対して指定するブレイクポイント */
+@media screen and (min-width:600px){
+  
+}
+/* PC表示で1,025px以上の範囲に対して指定するブレイクポイント*/
+@media screen and (min-width: 1025px) {
+  
+  
+}
+
 /* --------------------------------
 mainview
 --------------------------------*/
 .mv{
   position: relative;
-  margin-bottom: 150px;
+  /* margin-bottom: 64px; */
+  width: 100%;
 }
 .mv .mv-bg{
-  width: 60%;
-  height: 500px;
+  /* margin: 0% 10% 0%; */
+  width: 80%;
+  /* width: 60%; */
+  height: 300px;
   background-color: var(--main-bg-color-gray);
   border-radius: 30px;
   /* margin-right:  ; */
-  margin-left: 20%;
-  padding: 30px 100px;
+  /* margin-left: 20%; */
+  /* padding: 80px 50px; */
+  margin: auto;
 } 
+
+
+
 .mv .titleimage{
-  width: 320px;
+  display: none;
 }
 .mv span{
-  display: block;
-  color: var(--main-color-yellow);
-  margin-bottom: 20px;
+  display: none;
 }
+
 .mv p{
   color: var(--main-bg-color-white);
+  /* padding-right: 4rem;
+  padding-left: 150px; */
+  padding: 4rem 4rem 4rem 15rem ;
 }
 .mv .penguin{
-  width: 250px;
-  bottom: -10px;
-  left: 120px;
+  width: 180px;
+  bottom: 20px;
+  left: 0px;
   position: absolute;
 }
 
-.level-select a{
-  color: var(--main-color-yellow);
-  font-size: 1.8rem;
-}
 
+
+/* タブレット表示で600px以上の範囲に対して指定するブレイクポイント */
+@media screen and (min-width:600px){
+  .mv .titleimage{
+    display: block;
+    /* margin: 0rem 10rem 0rem 10rem; */
+    margin: auto;
+    width: 20rem;
+  }
+  .mv span{
+    display: block;
+    margin: 0rem 10rem;
+
+  }
+  .mv .mv-bg{
+    /* width: 60%;
+    height: 300px;
+    background-color: var(--main-bg-color-gray);
+    border-radius: 30px;
+
+    margin: 0%; */
+    padding: 2rem  0rem 0rem 0rem;
+  }
+  /* .mv{
+    margin-bottom: 64px;
+  }
+  .mv .penguin{
+    width: 180px;
+    bottom: 20px;
+    left: 0px;
+    position: absolute;
+  }
+  .mv .mv-bg{
+    width: 60%;
+    height: 300px;
+    background-color: var(--main-bg-color-gray);
+    border-radius: 30px;
+
+    margin: 0%;
+    padding: 30px 100px;
+  }
+  .mv .titleimage{
+    display: none;
+  }
+  .mv span{
+    display: none;
+  } */
+  /* .level-select {
+    bottom: 0px;
+    position: absolute;
+  } */
+}
+/* PC表示で1,025px以上の範囲に対して指定するブレイクポイント*/
+@media screen and (min-width: 1025px) {
+  
+  
+}
 /*----------------------------------------------------------------------------------
 
 中央パネルのデザイン
@@ -136,19 +208,24 @@ mainview
 ----------------------------------------------------------------------------------*/
 
 .maincontent{
-  width: 70%;
-  margin: 100px auto;
+  width: 80%;
+  margin: 50px 0px;
+  margin-left: 10%;
   background-color: var(--main-bg-color-green);
-  min-height: 400px;
-  display:table;
+  min-height: 200px;
+  /* display:table; */
   position: relative;
   box-shadow: 0 0 4px rgba(0,0,0,.14), 0 4px 8px rgba(0,0,0,.28);
+  justify-content: center;
+  
 }
 .maincontent > div {
-  display: table-cell;
-  vertical-align: middle;
+  width: 100%;
+  /* display: table-cell; */
+  /* vertical-align: middle; */
   text-align: center;
   color: var(--main-color);
+  /* position: relative; */
 }
 /* 中央パネル上のボタンのcss */
 .maincontent button{
@@ -157,129 +234,61 @@ mainview
   border-radius: 50px;
   box-shadow: var(--main-shadow);
 }
-  /* 中央パネル上のログインボタンのcss */
-.maincontent button.login{
-  border-color: var(--main-bg-color-green);
-  background: var(--main-bg-color-green);
+  /* 中央パネル上の問題レベルセレクト */
+.level-select {
+  /* bottom: 0px; */
+  /* position: absolute; */
 }
-/* 中央パネル上のサインアップボタンのcss */
-.maincontent button.signup{
-  border-color: var(--main-bg-color-yellow);
-  background: var(--main-bg-color-yellow);
-  box-shadow: var(--main-shadow);
-}
-.maincontent .move button.dark{
-  border-color: #e0b722;
-  background: #e0b722;
-}
-.maincontent p{
-  font-size: 1.6rem;
-  margin-bottom: 20px;
-}
-.maincontent button:active{
-  box-shadow: none;			
-}
-.maincontent button:focus{
-  outline: none;			
+.level-select a{
+  color: var(--main-color-yellow);
+  font-size: 1.8rem;
 }
 .maincontent > .left-formpanel {
-  position: absolute;
-  width: 40%;
-  height: 120%;
-  top: -10%;
-  left: 5%;
-  background: #fff;
-  box-shadow: 0 0 4px rgba(0,0,0,.14), 0 4px 8px rgba(0,0,0,.28);
-  transition: all .5s;
-  color: #303030;
-  overflow: hidden;
+  display: none;
 }
-.maincontent .left-formpanel > form{
-  padding: 15px 30px 30px;
-  width: 100%;
-  transition: all .5s;
-  background: #fff;
-  width: 100%; 
-}
-.maincontent .left-formpanel > form:focus{
-  outline: none;
-}
-.maincontent .left-formpanel #login{
-  padding-top: 10%;
-  visibility: visible;
-}
-.maincontent .left-formpanel #register{
-  transform: translateY(-80%) translateX(100%);
-  visibility: hidden;
-}
-.maincontent .left-formpanel.move #register{
-  transform: translateY(-80%) translateX(0%);
-  visibility: visible;
-}
-.maincontent .left-formpanel.move #login{
-  transform: translateX(-100%);
-  visibility: hidden;
-}
-.maincontent .left-formpanel > form > div {
-  position: relative;
-  margin-bottom: 15px;
-}
-.maincontent .left-formpanel label{
-  position: absolute;
-  top: -7px;
-  font-size: 1.2rem;
-  white-space: nowrap;
-  background: #fff;
-  text-align: left;
-  left: 15px;
-  padding: 0 5px;
-  color: #999;
-  pointer-events: none;
-}
-.maincontent .left-formpanel h3{
-  margin-bottom: 25px;
-}
-.maincontent .left-formpanel input{
-  height: 40px;
-  padding: 5px 15px;
-  width: 100%;
-  border: solid 1px #999;
-}
-.maincontent .left-formpanel input{
-  height: 40px;
-  padding: 5px 15px;
-  width: 100%;
-  border: solid 1px #999;
-}
-.maincontent .left-formpanel input:focus{
-  outline: none;
-  border-color: #ff4931;
-}
-.maincontent > .left-formpanel.move{
-  left: 45%;
-}
-.maincontent > .left-formpanel.move input:focus{
-  border-color: #e0b722;
+.maincontent > rgstr-btn{
+  margin: 20px;
 }
 
-
-@media (max-width: 767px){
+/* タブレット表示で600px以上の範囲に対して指定するブレイクポイント */
+@media screen and (min-width:600px){
   .maincontent{
-    padding: 5px;
-    margin: 0;
-    width: 100%;
-    display: block;
-  }
-  .maincontent > .left-formpanel{
+    width: 70%;
+    margin: 100px auto;
+    background-color: var(--main-bg-color-green);
+    min-height: 40rem;
+    /* display:table; */
     position: relative;
-    height: auto;
-    top: 0;
-    left: 0;
+    box-shadow: 0 0 4px rgba(0,0,0,.14), 0 4px 8px rgba(0,0,0,.28);
+  }
+  .maincontent p{
+    font-size: 1.6rem;
+    margin-bottom: 20px;
+  }
+  
+  .maincontent > rgstr-btn{
+    height: 100%;
+  }
+
+  .maincontent > .left-formpanel {
+    display: none;
+
+    position: absolute;
     width: 100%;
+    height: 100%;
+    top: -10%;
+    left: 5%;
+    background: #fff;
+    box-shadow: 0 0 4px rgba(0,0,0,.14), 0 4px 8px rgba(0,0,0,.28);
+    transition: all .5s;
+    color: #303030;
+    overflow: hidden;
   }
-  .maincontent > div{
-    display: inline-block;
-  }
+   */
+}
+/* PC表示で1,025px以上の範囲に対して指定するブレイクポイント*/
+@media screen and (min-width: 1025px) {
+  
   
 }
 /* -------------------------------- 
@@ -333,15 +342,15 @@ Footer
 .footer-links-container {
   display: flex;
   width: 90%;
-  max-width: 950px;
-  margin: 30px auto 80px;
+  /* max-width: 950px; */
+  /* margin:auto; */
   text-align: center;
 }
 .footer-links-container .footer-flex-column {
   position: relative;
   flex: 1 1 0;
   text-align: center;
-  border-right: 1px solid #555;
+  /* border-right: 1px solid #555; */
 }
 .footer-links-container .footer-flex-column:last-child {
   border: none;
@@ -350,7 +359,7 @@ Footer
   position: relative;
   width: 100%;
   max-width: 200px;
-  margin: auto;
+  /* margin: auto; */
   color: #aaa;
   font-size: 1.8rem;
   text-transform: uppercase;
@@ -368,11 +377,11 @@ Footer
 .footer-links-container .footer-flex-column li:hover {
   color: #999;
 }
-/* タブレット 600px以上の範囲に収めるブレイクポイント */
+/* タブレット表示で600px以上の範囲に対して指定するブレイクポイント */
 @media screen and (min-width:600px){
 
 }
-/* PC 1,025px以上の範囲に収めるブレイクポイント*/
+/* PC表示で1,025px以上の範囲に対して指定するブレイクポイント*/
 @media screen and (min-width: 1025px) {
   
   
