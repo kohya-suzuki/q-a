@@ -28,6 +28,7 @@ body {
   color: var(--main-color);
   background-color: var(--main-bg-color-beige);
   margin: 0;
+
 }
 a {
   text-decoration: none;
@@ -89,17 +90,6 @@ h1 img {
   text-align: center;
   margin: 20px auto;
 }
-
-/* タブレット表示で600px以上の範囲に対して指定するブレイクポイント */
-@media screen and (min-width:600px){
-  
-}
-/* PC表示で1,025px以上の範囲に対して指定するブレイクポイント*/
-@media screen and (min-width: 1025px) {
-  
-  
-}
-
 /* --------------------------------
 mainview
 --------------------------------*/
@@ -147,6 +137,9 @@ mainview
 
 /* タブレット表示で600px以上の範囲に対して指定するブレイクポイント */
 @media screen and (min-width:600px){
+  body{
+    width: 100%;
+  }
   .mv .titleimage{
     display: block;
     /* margin: 0rem 10rem 0rem 10rem; */
@@ -208,6 +201,7 @@ mainview
 ----------------------------------------------------------------------------------*/
 
 .maincontent{
+  
   width: 80%;
   margin: 50px 0px;
   margin-left: 10%;
@@ -253,11 +247,11 @@ mainview
 /* タブレット表示で600px以上の範囲に対して指定するブレイクポイント */
 @media screen and (min-width:600px){
   .maincontent{
-    width: 70%;
+    /* width: 70%;
     margin: 100px auto;
     background-color: var(--main-bg-color-green);
-    min-height: 40rem;
-    /* display:table; */
+    min-height: 40rem; */
+
     position: relative;
     box-shadow: 0 0 4px rgba(0,0,0,.14), 0 4px 8px rgba(0,0,0,.28);
   }
@@ -271,24 +265,119 @@ mainview
   }
 
   .maincontent > .left-formpanel {
-    display: none;
-
-    position: absolute;
-    width: 100%;
-    height: 100%;
-    top: -10%;
-    left: 5%;
+    /* position: absolute; */
+    display: inline;
+    /* width: 50%;
+    height: 100%; */
+    /* top: -10%;
+    left: 5%; */
     background: #fff;
     box-shadow: 0 0 4px rgba(0,0,0,.14), 0 4px 8px rgba(0,0,0,.28);
-    transition: all .5s;
+    /* transition: all .5s; */
     color: #303030;
     overflow: hidden;
   }
-   */
+  .maincontent .left-formpanel > form{
+    /* padding: 15px 30px 30px; */
+    /* width: 100%; */
+    /* transition: all .5s; */
+    background: #fff;
+    /* width: 100%;  */
+  }
+  .maincontent .left-formpanel > form:focus{
+    outline: none;
+  }
+  .maincontent .left-formpanel #login{
+    /* padding-top: 10%; */
+    /* visibility: visible; */
+  }
+  .maincontent .left-formpanel #register{
+    /* transform: translateY(-80%) translateX(100%);
+    visibility: hidden; */
+    /* ポップアップのサインアップフォームを消している */
+    display: none;
+  }
+  /* .maincontent .left-formpanel.move #register{
+    transform: translateY(-80%) translateX(0%);
+    visibility: visible;
+  }
+  .maincontent .left-formpanel.move #login{
+    transform: translateX(-100%);
+    visibility: hidden;
+  } */
+  .maincontent .left-formpanel > form > div {
+    position: relative;
+    margin-bottom: 15px;
+  }
+  .maincontent .left-formpanel label{
+    position: absolute;
+    top: -7px;
+    font-size: 1.2rem;
+    white-space: nowrap;
+    background: #fff;
+    text-align: left;
+    left: 15px;
+    padding: 0 5px;
+    color: #999;
+    pointer-events: none;
+  }
+
+
+  .maincontent .left-formpanel h3{
+    margin-bottom: 25px;
+  }
+  
+  /* ログインフォームのフォーム枠 */
+  .maincontent .left-formpanel input{
+    height: 40px;
+    padding: 5px 15px;
+    /* width: 100%; */
+    border: solid 1px #999;
+  }
+  .maincontent .left-formpanel input:focus{
+    outline: none;
+    border-color: #ff4931;
+  }
+  .maincontent > .left-formpanel.move{
+    left: 45%;
+  }
+  .maincontent > .left-formpanel.move input:focus{
+    border-color: #e0b722;
+  }
+
+
+
 }
 /* PC表示で1,025px以上の範囲に対して指定するブレイクポイント*/
 @media screen and (min-width: 1025px) {
-  
+  .maincontent > .left-formpanel {
+    /* position: absolute; */
+
+    display: inline;
+    width: 50%;
+    height: 100%;
+    /* top: -10%;
+    left: 5%; */
+    background: #fff;
+    box-shadow: 0 0 4px rgba(0,0,0,.14), 0 4px 8px rgba(0,0,0,.28);
+    /* transition: all .5s; */
+    color: #303030;
+    overflow: hidden;
+  }
+  .maincontent .left-formpanel > form{
+    /* padding: 15px 30px 30px; */
+    /* width: 100%; */
+    /* transition: all .5s; */
+    background: #fff;
+    /* width: 100%;  */
+  }
+  .maincontent .left-formpanel > form:focus{
+    outline: none;
+  }
+  .maincontent .left-formpanel #login{
+    /* padding-top: 10%; */
+    /* visibility: visible; */
+  }
   
 }
 /* -------------------------------- 
@@ -308,7 +397,7 @@ Footer
 .social-buttons-container {
   min-height: 100px;
   width: 100%;
-  max-width: 1000px;
+  /* max-width: 1000px; */
   margin: 0px auto 0;
   text-align: center;
 }
