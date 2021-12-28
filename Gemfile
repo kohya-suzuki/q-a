@@ -63,3 +63,4 @@ gem 'jquery-rails'
 gem 'rake'
 
 gem 'activeadmin'
+gem 'pry-rails'

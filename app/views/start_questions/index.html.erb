@@ -26,19 +26,9 @@ $(function(){
      var quizArea = $('.quiz_area'); 
      var quiz_html = quizArea.html(); 
      var quiz_cnt = 0;
-    
-     var quiz_fin_cnt = <%= Question.all.count %>; 
+     var quiz_fin_cnt = 5; 
      var quiz_success_cnt = 0;
-
-     var sourceStr = "&" ;
-     var a = sourceStr.replace( "&" , "" );
-
      var question = <%= Question.pluck(:content).to_json.html_safe %>;
-
-     console.log(typeof(question));
-     
-     
-     
      var aryQuiz = [];
      aryQuiz.push( 
          {
@@ -46,25 +36,24 @@ $(function(){
             <% answer_id = QuestionAnswer.find_by(question_id: question_id ).answer_id %>
             question : question[0],
             answer : <%= Answer.where(id: answer_id).pluck(:answer1, :answer2, :answer3)[0].to_json.html_safe %>
-
+            
         }
         ,{
             <% question_id = Question.find_by(content: Question.pluck(:content)[1]).id %>
             <% answer_id = QuestionAnswer.find_by(question_id: question_id ).answer_id %>
             question : question[1],
-            answer : <%= Answer.where(id: answer_id).pluck(:answer1, :answer2, :answer3)[0].to_json.html_safe %>
+            answer : <%= Answer.where(id: answer_id).pluck(:answer1, :answer2, :answer3)[1].to_json.html_safe %>
         }
         ,{
             <% question_id = Question.find_by(content: Question.pluck(:content)[1]).id %>
             <% answer_id = QuestionAnswer.find_by(question_id: question_id ).answer_id %>
             question : question[2],
-            answer : <%= Answer.where(id: answer_id).pluck(:answer1, :answer2, :answer3)[0].to_json.html_safe %>
+            answer : <%= Answer.where(id: answer_id).pluck(:answer1, :answer2, :answer3)[2].to_json.html_safe %>
         }
         ,{
             <% question_id = Question.find_by(content: Question.pluck(:content)[1]).id %>
             <% answer_id = QuestionAnswer.find_by(question_id: question_id ).answer_id %>
             question : question[3],
-            answer : <%= Answer.where(id: answer_id).pluck(:answer1, :answer2, :answer3)[0].to_json.html_safe %>
         }
         ,{
             <% question_id = Question.find_by(content: Question.pluck(:content)[1]).id %>
@@ -73,28 +62,28 @@ $(function(){
             answer : <%= Answer.where(id: answer_id).pluck(:answer1, :answer2, :answer3)[0].to_json.html_safe %>
         }
     );
-    
-
 
     quizReset();
-
     function quizReset(){
-        quizArea.html(quiz_html); //表示を元に戻す
+        quizArea.html(quiz_html); //表示を元に戻す。問題を表示する画面の初期化。
         quiz_cnt = 0;
         quiz_success_cnt = 0;
-        //aryQuiz = arrShuffle(aryQuiz); //毎回出題の順番をシャッフルしたい場合はここのコメントを消してね
+        //aryQuiz = arrShuffle(aryQuiz); //毎回出題の順番をシャッフルしたい場合はここのコメントを消す
         quizShow();
     };
 
-    
     quizArea.on('click', '.quiz_ans_area ul li', function(){ 
-        console.log('こんにちは');
+        //画面を暗くするボックスを表示（上から重ねて、結果表示中は選択肢のクリックやタップを封じる
         quizArea.find('.quiz_area_bg').show();
+        //選択した回答に色を付ける
         $(this).addClass('selected');
         if($(this).data('true')){
+            //正解の処理 〇を表示
             quizArea.find('.quiz_area_icon').addClass('true');
+            //正解数をカウント
             quiz_success_cnt++;
         }else{
+            //不正解の処理
             quizArea.find('.quiz_area_icon').addClass('false');
         }
         setTimeout(function(){
@@ -121,12 +110,14 @@ $(function(){
         //問題文を表示
         quizArea.find('.quiz_question').text(aryQuiz[quiz_cnt]['question']);
         //正解の回答を取得する
-        var success = aryQuiz[quiz_cnt]['answer'][0];
+        //var success = aryQuiz[quiz_cnt]['answer'][0];
+        var success = aryQuiz[quiz_cnt]['answer'];
         //現在の選択肢表示を削除する
-
         quizArea.find('.quiz_ans_area ul').empty();
         //問題文の選択肢をシャッフルさせる(自作関数) .concat()は参照渡し対策
-        var aryHoge = arrShuffle(aryQuiz[quiz_cnt]['answer'].concat());
+        //var aryHoge = arrShuffle(aryQuiz[quiz_cnt]['answer'].concat());
+        var aryHoge = arrShuffle(aryQuiz['answer']);
+
         //問題文の配列を繰り返し表示する
         $.each(aryHoge, function(key, value){
             var fuga = '<li>' + value + '</li>';
@@ -137,7 +128,7 @@ $(function(){
             quizArea.find('.quiz_ans_area ul').append(fuga);
         });
     }
-    
+
      //結果を表示する関数
     function quizResult(){
         quizArea.find('.quiz_set').hide();
@@ -148,9 +139,13 @@ $(function(){
         text += '<br><input type="button" value="もう一度挑戦する" class="quiz_restart p-10">';
         quizArea.find('.quiz_result').html(text);
         quizArea.find('.quiz_result').show();
+        quizArea.hide();
     }
 
      //配列をシャッフルする関数
+     //String(arr)
+     //Number(arr)
+     //var arr = 0;
     function arrShuffle(arr){
         for(i = arr.length - 1; i > 0; i--){
             var j = Math.floor(Math.random() * (i + 1));
