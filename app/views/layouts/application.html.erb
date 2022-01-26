@@ -1,22 +1,117 @@
+
 <!DOCTYPE html>
-<html>
-  <head>
-    <title>sumbo</title>
-    <meta name="viewport" content="width=device-width,initial-scale=1">
-    <%= csrf_meta_tags %>
-    <%= csp_meta_tag %>
+<html lang="ja" class="no-js">
+  <!----------------- Head --------------------------->
+    <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>ページのタイトル</title>
+      <script src="https://code.jquery.com/jquery-3.6.0.js" integrity="sha256-H+K7U5CnXl1h5ywQfKtSj8PCmoN9aaq30gDh27Xc0jk=" crossorigin="anonymous"></script> 
+      <script type="module">
+        document.documentElement.classList.remove('no-js');
+        document.documentElement.classList.add('js');
+      </script>
+    <%= stylesheet_link_tag 'application', media: 'all' %>
+    <meta name="description" content="ページの説明文">
+    <link rel="icon" href="/favicon.ico">
+    <link rel="apple-touch-icon" href="/apple-touch-icon.png">
+    </head>
+  <!----------------- /Head --------------------------->
 
-    <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
-    <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
-  </head>
-
+  <!----------------- Body --------------------------->
+  <!----------------- Header --------------------------->
+  <!-- codepenのナビゲーションの記述 -->
   <body>
+    <header role="banner">
+      <div id="cd-logo">
+        <a class="nav-title">
+          <h1>
+            <a href="/home/index">
+              <%= image_tag 'logo.svg', alt: 'sambo', class: 'titleimage' %>
+              <span>家事育児スキル認定アプリ</span>
+            </a>
+          </h1>
+        </a>
+      </div> 
+      <nav class="main-nav">
+        <ul>
+            <li><a class="cd-signin" href="#0">ログイン<%= link_to 'ログイン', new_admin_user_session_path, class: 'post' %></a></li>
+            <li><a class="cd-signup" href="#0">サインアップ<%= link_to 'サインアップ', new_admin_user_session_path, class: 'post' %></a></li>
+            
+        </ul>
+      </nav>
+    </header>
+    <!----------------- /Header --------------------------->
+    <div class="rogin-message">
+      <% if user_signed_in? %>     
+          <strong><%= link_to 'ユーザー', start_questions_path %></strong> 
+        <a> <%= current_user.username %> さん おかえりなさい！ </a>
+        <% else %>
+        <a>ゲストさんこんにちは！</a>
+        <strong><%= link_to 'ユーザー', home_index_path %></strong> 
+      <% end %>
+    </div>
     
+<<<<<<< HEAD
     <!--<header></header>-->
     
 
     <!-- <p class="notice"><%= notice %></p>
     <p class="alert"><%= alert %></p> -->
+=======
+>>>>>>> 6eba3dff1441ddb04fcd0679f2638fd8bccd8d06
     <%= yield %>
+
+  <!----------------- Footer --------------------------->
+  <!------------- codepenのフッター --------------->
+    <div class="rela-block footer">
+    <div class="rela-block social-buttons-container">
+        <div class="social-button facebook-button"></div>
+        <div class="social-button insta-button"></div>
+        <div class="social-button twitter-button"></div>
+        <div class="social-button pinterest-button"></div>
+    </div>
+    <div class="rela-block footer-links-container">
+        <div class="footer-flex-column">
+            <ul> What is Sambo?
+                <li>スウェーデンの言葉です</li>
+                <li>詳しくはこちら</li>
+                <li></li>
+            </ul>
+        </div>
+        <div class="footer-flex-column">
+            <ul> About Us
+                <li>個人開発者のkohです</li>
+                <li>プロフィールはこちら</li>
+                <li></li>
+            </ul>
+        </div>
+        <div class="footer-flex-column">
+            <ul> Our Mission
+                <li>Gives logical thinking</li>
+                <li>Gives sciense knowledge</li>
+                <li>Gives Future prediction</li>
+            </ul>
+        </div>
+        <div class="footer-flex-column">
+            <ul> Contact
+                <li>ご意見ご要望はこちら</li>
+                <li></li>
+                <li></li>
+            </ul>
+        </div>
+    </div>
+
+    <!----------------- copyrights ----------------------->
+    <div id="copyrights">
+      <div class="container">
+        <p> © Copyrights <strong>HogeHoge</strong>. All Rights Reserved</p>
+      </div>
+    </div>
+    <!----------------- /copyrights ----------------------->
+    <!----------------- Footer --------------------------->
   </body>
+  <!----------------- /Body --------------------------->
+
+  
 </html>
