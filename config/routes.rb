@@ -7,8 +7,12 @@ Rails.application.routes.draw do
   #   :registrations => 'users/registrations',
   #   :sessions => 'users/sessions',
   #   :passwords => 'users/passwords'
-  # } 
-  
+  # }
+
+  #Heroku用設定 
+  get '/top', to: 'home#index'
+  resources :posts
+  root to: 'home#top' #トップページをhomeコントローラのtopアクションに設定
 
 
 

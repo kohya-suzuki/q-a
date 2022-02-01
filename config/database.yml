@@ -24,4 +24,6 @@ test:
   database: question
 production:
   <<: *default
-  database: question
+  adapter: postgresql
+  encoding: unicode
+  pool: 5
