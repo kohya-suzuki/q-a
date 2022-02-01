@@ -17,7 +17,7 @@ Rails.application.routes.draw do
 
 
 
-  root 'home#index'
+  # root 'home#index'
   get 'home/index'
   
   # get 'home/userpage' => 'questions#userpage'
