@@ -2,11 +2,11 @@ class HomeController < ApplicationController
   before_action :authenticate_user!, only: [:show]
   
   def index
-    if user_signed_in?
-      render 'home/userpage'
-    else
+    # if user_signed_in?
+    #   render 'home/userpage'
+    # else
       render 'home/index'
-    end
+    # end
   end
 
   def show

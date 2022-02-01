@@ -1,4 +1,6 @@
 Rails.application.routes.draw do
+  get '/top', to: 'home#index' #Heroku用設定 
+  
   devise_for :users
   devise_for :admin_users, ActiveAdmin::Devise.config
   ActiveAdmin.routes(self)
@@ -9,8 +11,7 @@ Rails.application.routes.draw do
   #   :passwords => 'users/passwords'
   # }
 
-  #Heroku用設定 
-  get '/top', to: 'home#index'
+  
   resources :posts
   root to: 'home#index' #Herokuのトップページを指定
 
