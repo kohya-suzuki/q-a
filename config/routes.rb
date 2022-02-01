@@ -12,7 +12,7 @@ Rails.application.routes.draw do
   #Heroku用設定 
   get '/top', to: 'home#index'
   resources :posts
-  root to: 'home#top' #トップページをhomeコントローラのtopアクションに設定
+  root to: 'home#index' #Herokuのトップページを指定
 
 
 
