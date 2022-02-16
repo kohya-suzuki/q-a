@@ -26,6 +26,7 @@ test:
 
 production:
   <<: *default
-  database: question
-  username: 
-  password: <%= ENV['TEST_APP_DATABASE_PASSWORD'] %>
+  adapter: postgresql
+  database: db/production.postgresql
+  # password: <%= ENV['TEST_APP_DATABASE_PASSWORD'] %>
+  # username: 
