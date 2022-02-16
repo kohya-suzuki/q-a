@@ -65,7 +65,9 @@ gem 'rake'
 
 gem 'activeadmin'
 gem 'pry-rails'
+
+gem 'pg'
 # postgreSQLの略pg
-group :production do
-  gem 'pg'
-end
+# group :production do
+#   gem 'pg'
+# end
