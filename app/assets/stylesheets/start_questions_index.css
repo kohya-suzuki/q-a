@@ -55,6 +55,10 @@ ul{
 .quiz_result{
   margin: 0px 15%;
 }
+.quiz_ans_area  {
+  height: 70px;
+
+}
 .quiz_ans_area ul{
   justify-content: center;
   cursor:pointer;

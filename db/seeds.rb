@@ -12,11 +12,7 @@ Question.create(:content => '愛知県の子育て応援マスコットのキャ
 Question.create(:content => '赤ちゃんが便秘になったときに効果的な野菜は？', :level => '1', :question_contents => 'housework')
 Question.create(:content => '赤ちゃんの授乳で（「母乳」と「ミルク」両方にあてはまることですが、）飲ませ終わったらすることがあります。それは何でしょうか？', :level => '1', :question_contents => 'housework')
 
-QuestionAnswer.create(:question_id => 1 , :answer_id => 1)
-QuestionAnswer.create(:question_id => 2 , :answer_id => 2)
-QuestionAnswer.create(:question_id => 3 , :answer_id => 3)
-QuestionAnswer.create(:question_id => 4 , :answer_id => 4)
-QuestionAnswer.create(:question_id => 5 , :answer_id => 5)
+
 
 Answer.create(:answer1 => '6ヶ月', :answer2 => '9ヶ月', :answer3 => '１ヶ月')
 Answer.create(:answer1 => '3ヶ月', :answer2 => '６ヶ月', :answer3 => '９ヶ月')
@@ -25,3 +21,9 @@ Answer.create(:answer1 => 'さつまいも', :answer2 => 'ほうれんそう', :
 Answer.create(:answer1 => 'ゲップをさせる', :answer2 => 'みずを飲ませる', :answer3 => '口を拭く')
 
 AdminUser.create!(email: 'admin@example.com', password: 'password', password_confirmation: 'password') if Rails.env.development?
+
+QuestionAnswer.create(:question_id => 1 , :answer_id => 1)
+QuestionAnswer.create(:question_id => 2 , :answer_id => 2)
+QuestionAnswer.create(:question_id => 3 , :answer_id => 3)
+QuestionAnswer.create(:question_id => 4 , :answer_id => 4)
+QuestionAnswer.create(:question_id => 5 , :answer_id => 5)

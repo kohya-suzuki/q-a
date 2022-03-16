@@ -6,11 +6,16 @@ require "rails/all"
 # you've limited to :test, :development, or :production.
 Bundler.require(*Rails.groups)
 
-module Q
+
   class Application < Rails::Application
     # Initialize configuration defaults for originally generated Rails version.
     config.load_defaults 6.1
-
+    config.i18n.default_locale = :ja #Devise日本語化
+    config.i18n.load_path += Dir[Rails.root.join('config', 'locales', '**', '*.yml').to_s] #Devise日本語化
+    initializer(:remove_action_mailbox_and_activestorage_routes, after: :add_routing_paths) { |app|
+    app.routes_reloader.paths.delete_if {|path| path =~ /activestorage/}
+    app.routes_reloader.paths.delete_if {|path| path =~ /actionmailbox/ }
+    }
     # Configuration for the application, engines, and railties goes here.
     #
     # These settings can be overridden in specific environments using the files
@@ -19,5 +24,5 @@ module Q
     # config.time_zone = "Central Time (US & Canada)"
     # config.eager_load_paths << Rails.root.join("extras")
   end
-end
+
 # config.i18n.default_locale = :ja

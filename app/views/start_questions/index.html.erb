@@ -1,15 +1,14 @@
 <%= stylesheet_link_tag 'start_questions_index', media: 'all' %>
-
 <div class="quiz_area">
   <div class="quiz_set">
-      <div class="quiz_number">
-        第<span class="quiz_no">0</span>問
-      </div>
-      <div class="quiz_question">
-      </div>
-      <div class="child-penguin">
-        <%= image_tag 'penguin-c.png', alt: '子ペンギンの画像', title:'子ペンギン' %>
-      </div>
+    <div class="quiz_number">
+    第<span class="quiz_no">0</span>問
+    </div>
+    <div class="quiz_question">
+    </div>
+    <div class="child-penguin">
+    <%= image_tag 'penguin-c.png', alt: '子ペンギンの画像', title:'子ペンギン' %>
+</div>
   </div>
   <p>回答ボタンを押してください</p>
   <div class="quiz_ans_area" type="button">
@@ -26,9 +25,10 @@ $(function(){
      var quizArea = $('.quiz_area'); 
      var quiz_html = quizArea.html(); 
      var quiz_cnt = 0;
-     var quiz_fin_cnt = 5; 
+     var quiz_fin_cnt = 5;
      var quiz_success_cnt = 0;
      var question = <%= Question.pluck(:content).to_json.html_safe %>;
+     
      var aryQuiz = [];
      aryQuiz.push( 
          {
@@ -36,7 +36,6 @@ $(function(){
             <% answer_id = QuestionAnswer.find_by(question_id: question_id ).answer_id %>
             question : question[0],
             answer : <%= Answer.where(id: answer_id).pluck(:answer1, :answer2, :answer3)[0].to_json.html_safe %>
-            
         }
         ,{
             <% question_id = Question.find_by(content: Question.pluck(:content)[1]).id %>
@@ -45,22 +44,23 @@ $(function(){
             answer : <%= Answer.where(id: answer_id).pluck(:answer1, :answer2, :answer3)[1].to_json.html_safe %>
         }
         ,{
-            <% question_id = Question.find_by(content: Question.pluck(:content)[1]).id %>
+            <% question_id = Question.find_by(content: Question.pluck(:content)[2]).id %>
             <% answer_id = QuestionAnswer.find_by(question_id: question_id ).answer_id %>
             question : question[2],
             answer : <%= Answer.where(id: answer_id).pluck(:answer1, :answer2, :answer3)[2].to_json.html_safe %>
         }
         ,{
-            <% question_id = Question.find_by(content: Question.pluck(:content)[1]).id %>
+            <% question_id = Question.find_by(content: Question.pluck(:content)[3]).id %>
             <% answer_id = QuestionAnswer.find_by(question_id: question_id ).answer_id %>
             question : question[3],
         }
         ,{
-            <% question_id = Question.find_by(content: Question.pluck(:content)[1]).id %>
+            <% question_id = Question.find_by(content: Question.pluck(:content)[4]).id %>
             <% answer_id = QuestionAnswer.find_by(question_id: question_id ).answer_id %>
             question : question[4],
             answer : <%= Answer.where(id: answer_id).pluck(:answer1, :answer2, :answer3)[0].to_json.html_safe %>
         }
+
     );
 
     quizReset();
@@ -68,7 +68,7 @@ $(function(){
         quizArea.html(quiz_html); //表示を元に戻す。問題を表示する画面の初期化。
         quiz_cnt = 0;
         quiz_success_cnt = 0;
-        //aryQuiz = arrShuffle(aryQuiz); //毎回出題の順番をシャッフルしたい場合はここのコメントを消す
+        aryQuiz = arrShuffle(aryQuiz); //毎回出題の順番をシャッフルしたい場合はここのコメントを消す
         quizShow();
     };
 
@@ -105,10 +105,12 @@ $(function(){
 
      //問題を表示する関数
     function quizShow(){
+        
         //何問目かを表示
         quizArea.find('.quiz_no').text((quiz_cnt + 1));
         //問題文を表示
         quizArea.find('.quiz_question').text(aryQuiz[quiz_cnt]['question']);
+        quizArea.find('.quiz_ans_area').text(aryQuiz[quiz_cnt]['answer']);
         //正解の回答を取得する
         //var success = aryQuiz[quiz_cnt]['answer'][0];
         var success = aryQuiz[quiz_cnt]['answer'];
@@ -145,7 +147,7 @@ $(function(){
      //配列をシャッフルする関数
      //String(arr)
      //Number(arr)
-     //var arr = 0;
+    var arr = 0;
     function arrShuffle(arr){
         for(i = arr.length - 1; i > 0; i--){
             var j = Math.floor(Math.random() * (i + 1));

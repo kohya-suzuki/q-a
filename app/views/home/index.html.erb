@@ -24,7 +24,7 @@
       <div class="mv-bg">
         <%= image_tag 'logo.svg', alt: 'sambo', class: 'titleimage' %>
         <span>家事育児スキル認定アプリ</span>
-        <p>説明文雨gvっYヴ不kっふうgygyglgygっYgっybっっっyっg；crdrdykygvhgjkhっg説明文雨gvっYヴ不kっふうgygyglgygっYgっybっっっyっg；crdrdykygvhgjkhっg説明文雨gvっYヴ不kっふうgygyglgygっYgっybっっっyっg；crdrdykygvhgjkhっg説明文雨gvっYヴ不kっふうgygyglgygっYgっybっっっyっg； pr</p>
+        <p>家事・育児で日々がんばってるパパさんママさん、その知識と経験を未来へ残しませんか？</p>
       </div>
       <div class="mv-penguin">
         <%= image_tag 'penguin.png', alt: '親ペンギンの画像', title:'親ペンギン',class: 'penguin' %>
@@ -33,68 +33,20 @@
 <!------------ 中央パネルの右側表示 ----------------->
     <div class="maincontent">
       <div class="rgstr-btn">
-          <div class="level-select">
-            <div class="easy-question">
-              <%= link_to "初級", start_questions_path %>
-              <p>初めての方はこちら</p>
-            </div>
-            <div class="normal-question">
-              <%= link_to "中級", start_questions_path%>
-              <p>人生の必須知識を<br>身に着けましょう</p>
-            </div>
-            <div class="hard-question">
-              <%= link_to "上級", start_questions_path %>
-              <p>「パートナー」はおまかせあれ</p>
-            </div>
+        <div class="level-select">
+          <div class="easy-question">
+            <%= link_to "初級", start_questions_path %>
+            <p>初めての方はこちら</p>
           </div>
+          <div class="normal-question">
+            <%= link_to "中級", start_questions_path%>
+            <p>人生の必須知識を<br>身に着けましょう</p>
+          </div>
+          <div class="hard-question">
+            <%= link_to "上級", start_questions_path %>
+            <p>「パートナー」はおまかせあれ</p>
+          </div>
+        </div>
       </div>
-<!------------ 中央パネルの左側表示 ----------------->
-      <div class="left-formpanel">
-        <form id="login" tabindex="500">
-          <h3>ログイン</h3>
-          <div class="mail">
-            <input type="mail" name="">
-            <label>メールアドレスかユーザーネーム</label>
-          </div>
-          <div class="passwd">
-            <input type="password" name="">
-            <label>パスワード</label>
-          </div>
-          <div class="submit">
-            <button class="login">ログイン</button>
-          </div>
-        </form>
-        <form id="login" tabindex="500" style="padding-top: 0%;">
-            <h3>初めての方はこちら</h3>
-            <div class="submit">
-              <button class="signup">サインアップ</button>
-            </div>
-        </form>
-
-<!------------ ポップアップのフォーム表示を実装したらコメントアウトをとる ----------------->
-        # <form id="register" tabindex="502">
-        #   <h3>サインアップ</h3>
-        #   <div class="name">
-        #     <input type="text" name="">
-        #     <label>お名前</label>
-        #   </div>
-        #   <div class="mail">
-        #     <input type="mail" name="">
-        #     <label>メールアドレス</label>
-        #   </div>
-        #   <div class="uid">
-        #     <input type="text" name="">
-        #     <label>ユーザーネーム</label>
-        #   </div>
-        #   <div class="passwd">
-        #     <input type="password" name="">
-        #     <label>パスワード</label>
-        #   </div>
-        #   <div class="submit">
-        #     <button class="signup">サインアップ</button>
-        #   </div>
-        # </form>
-      </div>
-    </div>
   </body>
 </html>

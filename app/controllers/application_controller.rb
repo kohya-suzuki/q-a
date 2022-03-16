@@ -3,31 +3,27 @@ class ApplicationController < ActionController::Base
 
   before_action :configure_permitted_parameters, if: :devise_controller?
 
-  def after_sign_in_path_for(resorce)
+  def after_sign_in_path_for(resource)
     if current_user
-      render partial: '/start_questions/index.html.erb' 
       flash[:notice] = "ログインに成功しました" 
-        root_url  #指定したいパスに変更
-      else
-        flash[:notice] = "ログインできませんでした。" 
-        
-      end
+    else
+      flash[:notice] = "ログインできませんでした。"
+    end
+    home_index_path
   end
   
   def after_sign_out_path_for(resource)
     if current_user
       flash[:notice] = "ログアウトしました" 
-        root_url  #指定したいパスに変更
-      else
-        flash[:notice] = "ログインしています。" 
-        new_profile_path  #指定したいパスに変更
-      end
+    else
+      flash[:notice] = "ログインしています。" 
+    end
+    home_index_path
   end
 
-
-
   def configure_permitted_parameters
-    devise_parameter_sanitizer.permit(:sign_up, keys: [:name])
+    devise_parameter_sanitizer.permit(:sign_up, keys: [:name, :email])
+    devise_parameter_sanitizer.permit(:sign_in, keys: [:name])
   end
 
   

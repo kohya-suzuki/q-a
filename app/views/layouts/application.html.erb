@@ -20,7 +20,6 @@
 
   <!----------------- Body --------------------------->
   <!----------------- Header --------------------------->
-  <!-- codepenのナビゲーションの記述 -->
   <body>
     <header role="banner">
       <div id="cd-logo">
@@ -35,29 +34,30 @@
       </div> 
       <nav class="main-nav">
         <ul>
-            <li><a class="cd-signin" href="#0">ログイン<%= link_to 'ログイン', new_admin_user_session_path, class: 'post' %></a></li>
-            <li><a class="cd-signup" href="#0">サインアップ<%= link_to 'サインアップ', new_admin_user_session_path, class: 'post' %></a></li>
-            
+            <li>
+              <a class="cd-signin" href="/users/sign_in">ログイン<%= link_to 'ログイン', user_session_path, class: 'post' %></a>
+            </li>
+            <li>
+              <a class="cd-signup" href="/users/sign_up">サインアップ<%= link_to 'サインアップ', new_user_registration_path, class: 'post' %></a>
+            </li>
+            <li>
+              <a class="log-out" href="/users/sign_out">ログアウト<%= link_to 'ログアウト', destroy_user_session_path, class: 'delete' %></a>
+            </li>
         </ul>
       </nav>
     </header>
     <!----------------- /Header --------------------------->
     <div class="rogin-message">
-      <% if user_signed_in? %>     
-          <strong><%= link_to 'ユーザー', start_questions_path %></strong> 
-        <a> <%= current_user.username %> さん おかえりなさい！ </a>
-        <% else %>
+      <% if user_signed_in? %>
+        <a> <%= current_user.name %> さん おかえりなさい！ </a>
+      <% else %>
         <a>ゲストさんこんにちは！</a>
-        <strong><%= link_to 'ユーザー', home_index_path %></strong> 
       <% end %>
     </div>
-    
-    <!--<header></header>-->
-    
-
-    <!-- <p class="notice"><%= notice %></p>
-    <p class="alert"><%= alert %></p> -->
+    <p class="notice"><%= notice %></p>
+    <p class="alert"><%= alert %></p>
     <%= yield %>
+    <a class="delete" href="/users/sign_in"><%= link_to '退会', destroy_admin_user_session_path, class: 'delete' %></a>
 
   <!----------------- Footer --------------------------->
   <!------------- codepenのフッター --------------->
