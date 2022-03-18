@@ -22,16 +22,16 @@
 
 <script>
 $(function(){
-     var quizArea = $('.quiz_area'); 
-     var quiz_html = quizArea.html(); 
-     var quiz_cnt = 0;
-     var quiz_fin_cnt = 5;
-     var quiz_success_cnt = 0;
-     var question = <%= Question.pluck(:content).to_json.html_safe %>;
-     
-     var aryQuiz = [];
-     aryQuiz.push( 
-         {
+    var quizArea = $('.quiz_area'); 
+    var quiz_html = quizArea.html(); 
+    var quiz_cnt = 0;
+    var quiz_fin_cnt = 5;
+    var quiz_success_cnt = 0;
+    var question = <%= Question.pluck(:content).to_json.html_safe %>;
+
+    var aryQuiz = [];
+    aryQuiz.push( 
+        {
             <% question_id = Question.find_by(content: Question.pluck(:content)[0]).id %>
             <% answer_id = QuestionAnswer.find_by(question_id: question_id ).answer_id %>
             question : question[0],
@@ -157,7 +157,5 @@ $(function(){
         }
         return arr;
     }
-
-    
 });
 </script>

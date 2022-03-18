@@ -65,14 +65,11 @@ ul{
 }
 .quiz_ans_area ul a{
   justify-content: center;
-  
-
 }
-.quiz_ans_area li{
+.quiz_ans_area ul li{
   background-color: #fff;
   display: inline-block;
   /* align-items: center; */
-  
   width: 180px;
   height: 70px;
   margin-right: 30px;
