@@ -12,7 +12,9 @@
   </div>
   <p>回答ボタンを押してください</p>
   <div class="quiz_ans_area" type="button">
-    <ul></ul>
+    <ul>
+    <li></li>
+    </ul>
   </div>
   <div class="quiz_result">
   </div>
@@ -41,18 +43,20 @@ $(function(){
             <% question_id = Question.find_by(content: Question.pluck(:content)[1]).id %>
             <% answer_id = QuestionAnswer.find_by(question_id: question_id ).answer_id %>
             question : question[1],
-            answer : <%= Answer.where(id: answer_id).pluck(:answer1, :answer2, :answer3)[1].to_json.html_safe %>
+            answer : <%= Answer.where(id: answer_id).pluck(:answer1, :answer2, :answer3)[0].to_json.html_safe %>
         }
         ,{
             <% question_id = Question.find_by(content: Question.pluck(:content)[2]).id %>
             <% answer_id = QuestionAnswer.find_by(question_id: question_id ).answer_id %>
             question : question[2],
-            answer : <%= Answer.where(id: answer_id).pluck(:answer1, :answer2, :answer3)[2].to_json.html_safe %>
+            answer : <%= Answer.where(id: answer_id).pluck(:answer1, :answer2, :answer3)[0].to_json.html_safe %>
         }
         ,{
             <% question_id = Question.find_by(content: Question.pluck(:content)[3]).id %>
             <% answer_id = QuestionAnswer.find_by(question_id: question_id ).answer_id %>
             question : question[3],
+            answer : <%= Answer.where(id: answer_id).pluck(:answer1, :answer2, :answer3)[0].to_json.html_safe %>
+
         }
         ,{
             <% question_id = Question.find_by(content: Question.pluck(:content)[4]).id %>
@@ -110,15 +114,15 @@ $(function(){
         quizArea.find('.quiz_no').text((quiz_cnt + 1));
         //問題文を表示
         quizArea.find('.quiz_question').text(aryQuiz[quiz_cnt]['question']);
-        quizArea.find('.quiz_ans_area').text(aryQuiz[quiz_cnt]['answer']);
+        //quizArea.find('.quiz_ans_area').text(aryQuiz[quiz_cnt]['answer']);
         //正解の回答を取得する
-        //var success = aryQuiz[quiz_cnt]['answer'][0];
-        var success = aryQuiz[quiz_cnt]['answer'];
+        var success = aryQuiz[quiz_cnt]['answer'][0];
+        //var success = aryQuiz[quiz_cnt]['answer'];
         //現在の選択肢表示を削除する
         quizArea.find('.quiz_ans_area ul').empty();
         //問題文の選択肢をシャッフルさせる(自作関数) .concat()は参照渡し対策
-        //var aryHoge = arrShuffle(aryQuiz[quiz_cnt]['answer'].concat());
-        var aryHoge = arrShuffle(aryQuiz['answer']);
+        var aryHoge = arrShuffle(aryQuiz[quiz_cnt]['answer'].concat());
+        //var aryHoge = arrShuffle(aryQuiz['answer']);
 
         //問題文の配列を繰り返し表示する
         $.each(aryHoge, function(key, value){
@@ -128,6 +132,7 @@ $(function(){
                 fuga = '<li data-true="1">' + value + '</li>';
             }
             quizArea.find('.quiz_ans_area ul').append(fuga);
+            quizArea.find('.quiz_ans_area ul li').text(aryQuiz['answer']);
         });
     }
 
